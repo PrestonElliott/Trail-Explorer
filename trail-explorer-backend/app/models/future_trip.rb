@@ -1,0 +1,2 @@
+class FutureTrip < ApplicationRecord
+end
