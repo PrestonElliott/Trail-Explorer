@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   resources :future_trips
   resources :trips
   resources :trails
-  resources :users
+  # resources :users
 
-  post '/login' => 'sessions#create'
+  resources :users, only: [:create]
+  post '/login', to: 'auth#create'
+  get '/profile', to: 'users#show'
 
-  get '/signup' => 'users#new'
-  post '/users' => 'users#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,6 +1,9 @@
 class User < ApplicationRecord
     has_secure_password
 
+    # EXAMPLE VALIDATION
+    # validates :username, uniqueness: { case_sensitive: false }
+
     has_many :follows
     has_many :followed_users, through: :follows
   
