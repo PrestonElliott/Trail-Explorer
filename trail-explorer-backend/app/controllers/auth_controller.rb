@@ -1,14 +1,6 @@
 class AuthController < ApplicationController
-    # def create
-    #     user = User.find_by_email(params[:user][:email])
-    #     if user && user.authenticate(params[:user][:password])
-    #         render json: { token: "Success" }
-    #     else 
-    #         render json: { errors: "No Mi Gusta" }
-    #     end
-    # end
-
-    skip_before_action :authorized, only: [:create]
+    # Add back once login functionality works
+    # skip_before_action :authorized, only: [:create]
  
     def create
         @user = User.find_by(email: user_login_params[:email])

@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
-
-    skip_before_action :authorized, only: [:create]
+    # Add back once login functionality works
+    # skip_before_action :authorized, only: [:create]
 
     def profile
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    end
+
+    def show 
+        @user = User.find(params[:id])
+        render json: @user
     end
  
     def create
@@ -16,9 +21,10 @@ class UsersController < ApplicationController
         end
     end
 
-    # def index
-    #     users = User.all 
-    # end
+    def index
+        @users = User.all 
+        render json: @users
+    end
 
     # def edit
     #     @user = User.find(params[:id])

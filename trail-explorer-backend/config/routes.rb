@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :trails
   # resources :users
 
-  resources :users, only: [:create]
+  resources :users, only: [:create, :index, :show]
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#show'
 
