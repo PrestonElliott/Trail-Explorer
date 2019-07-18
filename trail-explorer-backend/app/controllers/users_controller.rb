@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     # Add back once login functionality works
     # skip_before_action :authorized, only: [:create]
+    #push
 
     def profile
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
