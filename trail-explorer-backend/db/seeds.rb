@@ -8,8 +8,8 @@
 User.destroy_all
 Follow.destroy_all
 
-asa = User.create(email: 'Andrew')
-preston = User.create(email: 'Preston')
+asa = User.create(name: "Andrew", email: 'Andrew', password: "123")
+preston = User.create(name: "Preston", email: 'Preston', password: "123")
 
 Follow.create(followed_user: preston, user: asa)
 Follow.create(followed_user: asa, user: preston)
