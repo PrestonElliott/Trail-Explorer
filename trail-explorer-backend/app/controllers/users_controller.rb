@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     # Add back once login functionality works
-    # skip_before_action :authorized, only: [:create]
+    skip_before_action :authorized, only: [:create]
     #push
 
     def profile

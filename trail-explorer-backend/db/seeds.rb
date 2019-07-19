@@ -1,5 +1,8 @@
 User.destroy_all
 Follow.destroy_all
+Trail.destroy_all
+# Trip.destroy_all
+# Future_trip.destroy_all
 
 andrew = User.create(name: "Andrew", email: 'andy@gmail.com', password: "123")
 preston = User.create(name: "Preston", email: 'preston@gmail.com', password: "123")
@@ -114,7 +117,7 @@ trail5 = Trail.create(
 #     t.integer "stars"
 #     t.string "image"
 
-#     create_table "users", force: :cascade do |t|
-#         t.string "name"
-#         t.string "email"
-#         t.string "password_digest"
+# create_table "future_trips", force: :cascade do |t|
+#     t.integer "user_id"
+#     t.integer "trail_id"
+#     t.text "note"
