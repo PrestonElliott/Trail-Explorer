@@ -21,7 +21,7 @@ export default class FormExample extends React.Component {
             .then(res => res.json())
             .then(res => {
                 if(res.jwt) {
-                    localStorage.setItem('brewster_token', res.jwt)
+                    localStorage.setItem('token', res.jwt)
                     localStorage.setItem('user_id', res.user.id)
                     console.log(localStorage)
                     // this.setState({ redirect: <Redirect to='/' /> })
