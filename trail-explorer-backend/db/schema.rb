@@ -26,19 +26,19 @@ ActiveRecord::Schema.define(version: 2019_07_17_190333) do
   end
 
   create_table "future_trips", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "trail_id"
+    t.integer "user_id"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "trails", force: :cascade do |t|
-    t.integer "trail_id"
+    t.integer "api_index"
     t.string "name"
     t.text "summary"
     t.string "difficulty"
-    t.integer "stars"
+    t.float "stars"
     t.string "url"
     t.string "imgSmallMed"
     t.string "imgMedium"
@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 2019_07_17_190333) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "trail_id"
+    t.integer "user_id"
     t.text "description"
-    t.integer "stars"
+    t.float "stars"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

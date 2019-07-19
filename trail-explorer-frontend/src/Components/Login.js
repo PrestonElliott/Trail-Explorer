@@ -22,7 +22,7 @@ export default class FormExample extends React.Component {
             .then(res => {
                 if(res.jwt) {
                     localStorage.setItem('brewster_token', res.jwt)
-                    localStorage.setItem('brewster_id', res.user_id)
+                    localStorage.setItem('user_id', res.user.id)
                     console.log(localStorage)
                     // this.setState({ redirect: <Redirect to='/' /> })
                     // this.props.logUser(true)

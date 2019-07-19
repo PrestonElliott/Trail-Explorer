@@ -1,8 +1,8 @@
 User.destroy_all
 Follow.destroy_all
 Trail.destroy_all
-# Trip.destroy_all
-# Future_trip.destroy_all
+Trip.destroy_all
+FutureTrip.destroy_all
 
 andrew = User.create(name: "Andrew", email: 'andy@gmail.com', password: "123")
 preston = User.create(name: "Preston", email: 'preston@gmail.com', password: "123")
@@ -35,7 +35,7 @@ f12 = Follow.create(followed_user: rose, user: han)
 f13 = Follow.create(followed_user: rose, user: jae)
 
 trail1 = Trail.create(
-    trail_id: 7021422, 
+    api_index: 7021422,
     name: "East Palisades Route", 
     summary: "A lovely hike including sweeping views of the Chattahoochee and a hidden gem - a bamboo forest!",   
     difficulty: "greenBlue",
@@ -50,7 +50,7 @@ trail1 = Trail.create(
 )
 
 trail2 = Trail.create(
-    trail_id: 7045614, 
+    api_index: 7045614, 
     name: "Beltline Eastside Trail: Piedmont Park to Krog Street Market", 
     summary: "A 5-mile romp through some of Atlanta's best spots for both green spaces and urban culture.",   
     difficulty: "green",
@@ -65,7 +65,7 @@ trail2 = Trail.create(
 )
 
 trail3 = Trail.create(
-    trail_id: 7034642, 
+    api_index: 7034642, 
     name: "Sope Creek", 
     summary: "Sope Creek has a few miles of gravel and some good, fun, singletrack in metro Atlanta.",   
     difficulty: "blue",
@@ -80,7 +80,7 @@ trail3 = Trail.create(
 )
 
 trail4 = Trail.create(
-    trail_id: 7014350, 
+    api_index: 7014350, 
     name: "Charlies Bunion Out and Back", 
     summary: "A trail from Newfound Gap to Charlie's Bunion along the Appalachian Trail (AT).",   
     difficulty: "blue",
@@ -95,7 +95,7 @@ trail4 = Trail.create(
 )
 
 trail5 = Trail.create(
-    trail_id: 7015700, 
+    api_index: 7015700, 
     name: "Mt. Cammerer from Low Gap", 
     summary: "A wooded trail with a 360-degree view payoff on top of the mountain.",   
     difficulty: "blueBlack",
@@ -109,15 +109,20 @@ trail5 = Trail.create(
     latitude: 35.752
 )
 
-# COMPLETE SEED DATA
-# create_table "trips", force: :cascade do |t|
-#     t.integer "user_id"
-#     t.integer "trail_id"
-#     t.text "description"
-#     t.integer "stars"
-#     t.string "image"
+20.times do
+    Trip.create(
+      trail_id: Trail.all.sample.id,
+      user_id: User.all.sample.id,
+      description: Faker::Hipster.sentence,
+      stars: rand(1..5),
+      image: "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjBq6bKwMHjAhWyc98KHdPCDtgQjRx6BAgBEAU&url=https%3A%2F%2Fwww.nationalgeographic.com%2Ftravel%2Fnational-parks%2Fyosemite-national-park%2F&psig=AOvVaw3LnzYPRZQSJfyrGivY2zdA&ust=1563643628412035"
+    )
+end
 
-# create_table "future_trips", force: :cascade do |t|
-#     t.integer "user_id"
-#     t.integer "trail_id"
-#     t.text "note"
+20.times do 
+    FutureTrip.create(
+        trail_id: Trail.all.sample.id,
+        user_id: User.all.sample.id,
+        note: Faker::Hipster.words(9)
+    )
+end
