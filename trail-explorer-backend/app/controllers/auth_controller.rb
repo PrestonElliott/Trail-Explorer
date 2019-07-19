@@ -1,6 +1,6 @@
 class AuthController < ApplicationController
     # Add back once login functionality works
-    skip_before_action :authorized, only: [:create]
+    # skip_before_action :authorized, only: [:create]
  
     def create
         @user = User.find_by(email: user_login_params[:email])

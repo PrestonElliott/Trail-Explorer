@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
     # Add back once login functionality works
-    before_action :authorized
+    # before_action :authorized
  
     def encode_token(payload)
         # should store secret in env variable
