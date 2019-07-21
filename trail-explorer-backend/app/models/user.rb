@@ -1,9 +1,11 @@
 class User < ApplicationRecord
+    
     has_secure_password
 
-    # EXAMPLE VALIDATION
-    # validates :username, uniqueness: { case_sensitive: false }
+    # VALIDATIONS
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
+    #RELATIONSHIPS
     has_many :trips
     has_many :trails, through: :trips
 
