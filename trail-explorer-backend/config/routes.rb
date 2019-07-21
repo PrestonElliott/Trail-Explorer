@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   resources :future_trips
   resources :trips
   resources :trails
-  # resources :users
+  resources :users
 
-  resources :users, only: [:create, :index, :show]
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#show'
 
