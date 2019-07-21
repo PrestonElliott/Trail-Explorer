@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    
+    #SECURITY
     has_secure_password
 
     # VALIDATIONS
