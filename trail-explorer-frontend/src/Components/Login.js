@@ -1,7 +1,8 @@
 import React from "react";
 import { Form, FormInput, FormGroup } from "shards-react";
+import { connect } from 'react-redux'
 
-export default class FormExample extends React.Component {
+class FormExample extends React.Component {
 
     handleLogin = (e) => {
         e.preventDefault()
@@ -22,8 +23,9 @@ export default class FormExample extends React.Component {
             .then(res => {
                 if(res.jwt) {
                     localStorage.setItem('token', res.jwt)
-                    localStorage.setItem('user', res.user)
+                    // localStorage.setItem('user', res.user)
                     console.log(localStorage)
+                    this.props.dispatch({ type: 'GET_USER', user: res.user })
                     // this.setState({ redirect: <Redirect to='/' /> })
                     // this.props.logUser(true)
                 }
@@ -52,3 +54,6 @@ export default class FormExample extends React.Component {
         )
     }
 }
+
+// let mapStateToProps = state => ({})
+export default connect()(FormExample)
