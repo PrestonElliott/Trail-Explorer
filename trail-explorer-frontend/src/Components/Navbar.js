@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
 // import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -21,7 +22,7 @@ import {
   Collapse
 } from "shards-react";
 
-export default class NavExample extends React.Component {
+class NavExample extends React.Component {
   constructor(props) {
     super(props);
 
@@ -60,11 +61,22 @@ export default class NavExample extends React.Component {
 
         <Collapse open={this.state.collapseOpen} navbar>
           <Nav navbar>
+          
+          <NavItem>
+            <NavLink active href="#">
+              Active
+            </NavLink>
+          </NavItem>
+
+          {
+            this.props.loggedIn &&
             <NavItem>
-              <NavLink active href="#">
-                Active
+              <NavLink active onClick={()=> this.props.dispatch({ type: 'LOG_OUT' }) }>
+                Logout
               </NavLink>
             </NavItem>
+          }
+
             <NavItem>
               <NavLink href="#" disabled>
                 Disabled
@@ -100,3 +112,6 @@ export default class NavExample extends React.Component {
     );
   }
 }
+
+let mapStateToProps = state => ({ loggedIn: state.userReducer.loggedIn })
+export default connect(mapStateToProps)(NavExample)
