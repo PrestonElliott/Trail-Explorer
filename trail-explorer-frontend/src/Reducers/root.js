@@ -6,7 +6,7 @@ import followReducer from './follow'
 import {combineReducers} from 'redux';
 
 export default combineReducers({
-  user: userReducer,
+  userReducer: userReducer,
   trail: trailReducer,
   trip: tripReducer,
   future_trip: futureTripReducer,

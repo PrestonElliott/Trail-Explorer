@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 
 class Profile extends Component {
     render() {
+        console.log(this.props)
         return (
             <div>
-                <h2>{user}</h2>
+                <h2>{this.props.user.name}</h2>
             </div>
         );
     }
 }
 
-// mapStateToProps = state => ({ state })
-// export default ()(Profile);
-
+let mapStateToProps = state => ({ user: state.userReducer.user })
+export default connect(mapStateToProps)(Profile);
