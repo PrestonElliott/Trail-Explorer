@@ -7,8 +7,8 @@ import {combineReducers} from 'redux';
 
 export default combineReducers({
   userReducer: userReducer,
-  trail: trailReducer,
-  trip: tripReducer,
-  future_trip: futureTripReducer,
-  follow: followReducer
+  trailReducer: trailReducer,
+  tripReducer: tripReducer,
+  futureTripReducer: futureTripReducer,
+  followReducer: followReducer
 });
