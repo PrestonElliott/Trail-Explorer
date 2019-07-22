@@ -8,10 +8,7 @@ export default (state = initialState, action) => {
         case "GET_TRAILS": {
         return { ...state, trail: action.data }
         }
-        case "MORE_TRAILS": {
-        let newOffset = (state.pageOffset + 10) % 500
-        return { ...state, pageOffset: newOffset }
-        }
+        
         default: {
         return state
         }
