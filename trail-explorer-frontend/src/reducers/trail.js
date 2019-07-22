@@ -1,6 +1,5 @@
 let initialState = {
     trail: [],
-    pageOffset: 0
   }
   
 export default (state = initialState, action) => {
@@ -8,7 +7,7 @@ export default (state = initialState, action) => {
         case "GET_TRAILS": {
         return { ...state, trail: action.data }
         }
-        
+
         default: {
         return state
         }
