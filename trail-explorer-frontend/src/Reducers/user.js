@@ -1,7 +1,7 @@
 let initialState = {
     loggedIn: !!localStorage.token,
     user: {}
-  }
+}
   
 export default (state = initialState, action) => {
     switch (action.type) {

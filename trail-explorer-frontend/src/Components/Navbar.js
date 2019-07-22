@@ -41,7 +41,7 @@ class NavExample extends React.Component {
       ...{
         dropdownOpen: !this.state.dropdownOpen
       }
-    });
+    })
   }
 
   toggleNavbar() {
@@ -50,7 +50,7 @@ class NavExample extends React.Component {
       ...{
         collapseOpen: !this.state.collapseOpen
       }
-    });
+    })
   }
 
   render() {

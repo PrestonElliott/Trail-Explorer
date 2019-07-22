@@ -20,7 +20,6 @@ class ApplicationController < ActionController::API
     end
  
     def encode_token(payload)
-        # should store secret in env variable
         JWT.encode(payload, '+tree_+192$house')
     end
 end
