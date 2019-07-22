@@ -33,7 +33,7 @@ class App extends React.Component {
           <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />
         </Switch>
       </div>
-    );
+    )
   }
 }
 
