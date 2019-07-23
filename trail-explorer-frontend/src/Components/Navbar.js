@@ -61,40 +61,38 @@ class NavExample extends React.Component {
 
         <Collapse open={this.state.collapseOpen} navbar>
           <Nav navbar>
-          
-          <NavItem>
-            <NavLink active href="#">
-              Active
-            </NavLink>
-          </NavItem>
+            {/* ADD PATHS AND REDIRECTS FOR THESE LINKS */}
+            <NavItem>
+              <NavLink active href="#">
+                Home
+              </NavLink>
+            </NavItem>
 
-          {
-            this.props.loggedIn &&
+            <NavItem>
+              <NavLink active href="#">
+                Trails
+              </NavLink>
+            </NavItem>
+
+            <Dropdown open={this.state.dropdownOpen} toggle={this.toggleDropdown}>
+              <DropdownToggle nav caret>
+                Profile
+              </DropdownToggle>
+                <DropdownMenu>
+                {/* ADD PATHS AND REDIRECTS FOR THESE LINKS */}
+                  <DropdownItem>My Profile</DropdownItem>
+                  <DropdownItem>Follower Feed</DropdownItem>
+                  <DropdownItem>Edit</DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
+
+            { this.props.loggedIn &&
             <NavItem>
               <NavLink active onClick={()=> this.props.dispatch({ type: 'LOG_OUT' }) }>
-                Logout
+                Log Out
               </NavLink>
-            </NavItem>
-          }
-
-            <NavItem>
-              <NavLink href="#" disabled>
-                Disabled
-              </NavLink>
-            </NavItem>
-            <Dropdown
-              open={this.state.dropdownOpen}
-              toggle={this.toggleDropdown}
-            >
-              <DropdownToggle nav caret>
-                Dropdown
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>Action</DropdownItem>
-                <DropdownItem>Another action</DropdownItem>
-                <DropdownItem>Something else here</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            </NavItem> 
+            }
           </Nav>
 
           <Nav navbar className="ml-auto">
