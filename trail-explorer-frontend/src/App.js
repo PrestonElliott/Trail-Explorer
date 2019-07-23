@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import Navbar from "./Components/Navbar"
 import Login from "./Components/Login"
 import Profile from "./Components/Profile"
-
-import './App.css';
+import './App.css'
 
 class App extends React.Component {
 
@@ -38,4 +37,4 @@ class App extends React.Component {
 }
 
 let mapStateToProps = state => ({ user: state.userReducer.user, loggedIn: state.userReducer.loggedIn })
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)

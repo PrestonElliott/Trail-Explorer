@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css"
 import "shards-ui/dist/css/shards.min.css"
 // import { faSearch } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,10 +24,10 @@ import {
 
 class NavExample extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.toggleDropdown = this.toggleDropdown.bind(this);
-    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.toggleDropdown = this.toggleDropdown.bind(this)
+    this.toggleNavbar = this.toggleNavbar.bind(this)
 
     this.state = {
       dropdownOpen: false,
@@ -109,7 +109,7 @@ class NavExample extends React.Component {
           </Nav>
         </Collapse>
       </Navbar>
-    );
+    )
   }
 }
 

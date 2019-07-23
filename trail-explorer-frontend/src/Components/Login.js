@@ -1,5 +1,5 @@
-import React from "react";
-import { Form, FormInput, FormGroup } from "shards-react";
+import React from "react"
+import { Form, FormInput, FormGroup } from "shards-react"
 import { connect } from 'react-redux'
 
 class FormExample extends React.Component {
