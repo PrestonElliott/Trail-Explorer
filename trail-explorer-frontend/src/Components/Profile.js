@@ -13,8 +13,9 @@ class Profile extends Component {
         console.log(this.props)
         return (
             <div>
-                <div>
-                    <h2>{this.props.user.name}</h2> <h4>{this.props.user.email}</h4>
+                <div className="user-profile">
+                    <h3>Hey {this.props.user.name}!</h3>
+                     <h4>{this.props.user.email}</h4>
                 </div>
                 <div>
                     <Iframe title="trails-map" className="trails-map" position="absolute" width="100%" height="100%" frameborder="0" scrolling="no" 
