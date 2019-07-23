@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Trail from "./Trail"
 import { getTrails, fetchedTrails } from "../Services/backend"
 import Iframe from 'react-iframe'
+import TrailsContainer from "../Containers/TrailsContainer"
 
 class Profile extends Component {
     componentDidMount() {
@@ -18,12 +18,11 @@ class Profile extends Component {
                      <h4>{this.props.user.email}</h4>
                 </div>
                 <div>
-                    <Iframe title="trails-map" className="trails-map" position="absolute" width="100%" height="100%" frameborder="0" scrolling="no" 
+                    <Iframe title="trails-map" className="trails-map" position="absolute" frameborder="0" scrolling="no" 
                         src="https://www.hikingproject.com/widget/map?favs=1&location=fixed&x=-9399899&y=4026097&z=11&h=500">
                     </Iframe>
                 </div>
-                {/* FIX TRAIL MAPPING BELOW */}
-                {/* <p> {this.props.user.trails.map(trail => <Trail key={trail.id} trail={trail}/>)}</p> */}
+                <TrailsContainer/>
             </div>
         )
     }
