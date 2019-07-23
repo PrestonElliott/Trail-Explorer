@@ -56,7 +56,7 @@ class NavExample extends React.Component {
   render() {
     return (
       <Navbar type="dark" theme="primary" expand="md">
-        <NavbarBrand href="#">Shards React</NavbarBrand>
+        <NavbarBrand href="#">Trail Explorer</NavbarBrand>
         <NavbarToggler onClick={this.toggleNavbar} />
 
         <Collapse open={this.state.collapseOpen} navbar>
@@ -74,6 +74,7 @@ class NavExample extends React.Component {
               </NavLink>
             </NavItem>
 
+            { this.props.loggedIn &&
             <Dropdown open={this.state.dropdownOpen} toggle={this.toggleDropdown}>
               <DropdownToggle nav caret>
                 Profile
@@ -85,6 +86,7 @@ class NavExample extends React.Component {
                   <DropdownItem>Edit</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
+            }
 
             { this.props.loggedIn &&
             <NavItem>
