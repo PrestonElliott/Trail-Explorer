@@ -1,38 +1,39 @@
-# User.destroy_all
-# Follow.destroy_all
-# Trail.destroy_all
-# Trip.destroy_all
-# FutureTrip.destroy_all
+Destination.destroy_all
+Follow.destroy_all
+Trail.destroy_all
+Trip.destroy_all
+FutureTrip.destroy_all
+User.destroy_all
 
 andrew = User.create(name: "Andrew", email: 'andy@gmail.com', password: "123")
-# preston = User.create(name: "Preston", email: 'preston@gmail.com', password: "123")
-# romy = User.create(name: "Romy", email: 'romy@gmail.com', password: "123")
-# paula = User.create(name: "Paula", email: 'paula@gmail.com', password: "123")
-# dhara = User.create(name: "Dhara", email: 'dhara@gmail.com', password: "123")
-# han = User.create(name: "Han", email: 'han@gmail.com', password: "123")
-# jae = User.create(name: "Jae", email: 'jae@gmail.com', password: "123")
-# scott = User.create(name: "Scott", email: 'scott@gmail.com', password: "123")
-# evan = User.create(name: "Evan", email: 'evan@gmail.com', password: "123")
-# deka = User.create(name: "Deka", email: 'deka@gmail.com', password: "123")
-# rose = User.create(name: "Rose", email: 'rose@gmail.com', password: "123")
-# tun = User.create(name: "Tun", email: 'tun@gmail.com', password: "123")
-# will = User.create(name: "Will", email: 'codejones@gmail.com', password: "123")
-# tez = User.create(name: "Tez", email: 'tez@gmail.com', password: "123")
-# hanaa = User.create(name: "Hanaa", email: 'hanaa@gmail.com', password: "123")
+preston = User.create(name: "Preston", email: 'preston@gmail.com', password: "123")
+romy = User.create(name: "Romy", email: 'romy@gmail.com', password: "123")
+paula = User.create(name: "Paula", email: 'paula@gmail.com', password: "123")
+dhara = User.create(name: "Dhara", email: 'dhara@gmail.com', password: "123")
+han = User.create(name: "Han", email: 'han@gmail.com', password: "123")
+jae = User.create(name: "Jae", email: 'jae@gmail.com', password: "123")
+scott = User.create(name: "Scott", email: 'scott@gmail.com', password: "123")
+evan = User.create(name: "Evan", email: 'evan@gmail.com', password: "123")
+deka = User.create(name: "Deka", email: 'deka@gmail.com', password: "123")
+rose = User.create(name: "Rose", email: 'rose@gmail.com', password: "123")
+tun = User.create(name: "Tun", email: 'tun@gmail.com', password: "123")
+will = User.create(name: "Will", email: 'codejones@gmail.com', password: "123")
+tez = User.create(name: "Tez", email: 'tez@gmail.com', password: "123")
+hanaa = User.create(name: "Hanaa", email: 'hanaa@gmail.com', password: "123")
 
-# f1 = Follow.create(followed_user: preston, user: andrew)
-# f2 = Follow.create(followed_user: andrew, user: preston)
-# f3 = Follow.create(followed_user: preston, user: romy)
-# f4 = Follow.create(followed_user: preston, user: paula)
-# f5 = Follow.create(followed_user: preston, user: dhara)
-# f6 = Follow.create(followed_user: preston, user: han)
-# f7 = Follow.create(followed_user: preston, user: jae)
-# f8 = Follow.create(followed_user: preston, user: scott)
-# f9 = Follow.create(followed_user: rose, user: romy)
-# f10 = Follow.create(followed_user: rose, user: paula)
-# f11 = Follow.create(followed_user: rose, user: dhara)
-# f12 = Follow.create(followed_user: rose, user: han)
-# f13 = Follow.create(followed_user: rose, user: jae)
+f1 = Follow.create(followed_user: preston, user: andrew)
+f2 = Follow.create(followed_user: andrew, user: preston)
+f3 = Follow.create(followed_user: preston, user: romy)
+f4 = Follow.create(followed_user: preston, user: paula)
+f5 = Follow.create(followed_user: preston, user: dhara)
+f6 = Follow.create(followed_user: preston, user: han)
+f7 = Follow.create(followed_user: preston, user: jae)
+f8 = Follow.create(followed_user: preston, user: scott)
+f9 = Follow.create(followed_user: rose, user: romy)
+f10 = Follow.create(followed_user: rose, user: paula)
+f11 = Follow.create(followed_user: rose, user: dhara)
+f12 = Follow.create(followed_user: rose, user: han)
+f13 = Follow.create(followed_user: rose, user: jae)
 
 trail1 = Trail.create(
     api_index: 7021422,
@@ -109,20 +110,33 @@ trail5 = Trail.create(
     latitude: 35.752
 )
 
-# 20.times do
-#     Trip.create(
-#       trail_id: Trail.all.sample.id,
-#       user_id: User.all.sample.id,
-#       description: Faker::Hipster.sentence,
-#       stars: rand(1..5),
-#       image: "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjBq6bKwMHjAhWyc98KHdPCDtgQjRx6BAgBEAU&url=https%3A%2F%2Fwww.nationalgeographic.com%2Ftravel%2Fnational-parks%2Fyosemite-national-park%2F&psig=AOvVaw3LnzYPRZQSJfyrGivY2zdA&ust=1563643628412035"
-#     )
-# end
+20.times do
+    Trip.create(
+      user_id: User.all.sample.id,
+      description: Faker::Hipster.sentence,
+      stars: rand(1..5),
+      image: "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjBq6bKwMHjAhWyc98KHdPCDtgQjRx6BAgBEAU&url=https%3A%2F%2Fwww.nationalgeographic.com%2Ftravel%2Fnational-parks%2Fyosemite-national-park%2F&psig=AOvVaw3LnzYPRZQSJfyrGivY2zdA&ust=1563643628412035"
+    )
 
-# 20.times do 
-#     FutureTrip.create(
-#         trail_id: Trail.all.sample.id,
-#         user_id: User.all.sample.id,
-#         note: Faker::Hipster.words(9)
-#     )
-# end
+end
+
+20.times do 
+    FutureTrip.create(
+        user_id: User.all.sample.id,
+        note: Faker::Hipster.words(9)
+    )
+end
+
+10.times do 
+    Destination.create(
+        trail: Trail.all.sample,
+        trek: Trip.all.sample
+    )
+end
+
+10.times do 
+    Destination.create(
+        trail: Trail.all.sample,
+        trek: FutureTrip.all.sample
+    )
+end
