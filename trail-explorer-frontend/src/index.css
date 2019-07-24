@@ -8,6 +8,11 @@
   height: 100%
 }
 
+.text-logo {
+  width: 20%;
+  height: 20%;
+}
+
 /* CSS FROM REACT SHARDS */
 body {
   margin: 0;

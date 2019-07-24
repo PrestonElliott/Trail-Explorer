@@ -12,6 +12,7 @@ class TrailsContainer extends Component {
     render() { 
         return ( 
             <div>
+                <h3> TRAILS HOMEPAGE</h3>
                 {/* <Trail/> */}
 
             </div> 

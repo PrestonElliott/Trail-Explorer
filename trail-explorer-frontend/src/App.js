@@ -6,6 +6,7 @@ import Login from "./Components/Login"
 import Profile from "./Components/Profile"
 import Home from "./Components/Home"
 import './App.css'
+import TrailsContainer from './Containers/TrailsContainer';
 
 class App extends React.Component {
 
@@ -30,6 +31,7 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path='/home' component={Home} />
+          <Route exact path='/trails' component={TrailsContainer} />
           <Route path='/login' render={()=> this.props.loggedIn ? <Redirect to='/profile'/> : <Login/> } />
           <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />
         </Switch>
