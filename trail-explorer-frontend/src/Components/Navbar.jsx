@@ -117,7 +117,6 @@ class NavExample extends React.Component {
                   </NavItem>
                 </Link>
               }
-
           </Nav>
 
           {/* LOGO */}

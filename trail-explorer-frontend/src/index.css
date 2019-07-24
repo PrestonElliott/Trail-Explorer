@@ -3,16 +3,16 @@
   text-align: left
 }
 
+.trail-detail-map {
+  width: 75%;
+  max-width: 1200px;
+  height:410px;
+}
+
+/* TRAILS PAGE CSS */
 .trails-map {
   width: 100%;
   height: 100%
-}
-
-.trail-detail-map {
-  width: 75%;
-  /* height: 100%; */
-  max-width: 1200px;
-  height:410px;
 }
 
 /* NAVBAR CSS */

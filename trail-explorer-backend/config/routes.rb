@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :destinations
   resources :follows
   resources :future_trips
   resources :trips

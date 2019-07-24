@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_190333) do
+ActiveRecord::Schema.define(version: 2019_07_24_195249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "destinations", force: :cascade do |t|
+    t.bigint "trail_id"
+    t.string "trek_type"
+    t.bigint "trek_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trail_id"], name: "index_destinations_on_trail_id"
+    t.index ["trek_type", "trek_id"], name: "index_destinations_on_trek_type_and_trek_id"
+  end
 
   create_table "follows", force: :cascade do |t|
     t.bigint "user_id"
@@ -26,7 +36,6 @@ ActiveRecord::Schema.define(version: 2019_07_17_190333) do
   end
 
   create_table "future_trips", force: :cascade do |t|
-    t.integer "trail_id"
     t.integer "user_id"
     t.text "note"
     t.datetime "created_at", null: false
@@ -51,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_07_17_190333) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.integer "trail_id"
     t.integer "user_id"
     t.text "description"
     t.float "stars"
@@ -68,4 +76,5 @@ ActiveRecord::Schema.define(version: 2019_07_17_190333) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "destinations", "trails"
 end
