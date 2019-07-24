@@ -19,7 +19,7 @@ class Profile extends Component {
                 </div>
                 <div>
                     <Iframe title="trails-map" className="trails-map" position="absolute" frameborder="0" scrolling="no" 
-                        src="https://www.hikingproject.com/widget/map?favs=1&location=fixed&x=-9399899&y=4026097&z=11&h=500">
+                        src="https://www.hikingproject.com/widget/map?favs=1&location=ip&x=-9402411&y=4020493&z=11.5&h=500">
                     </Iframe>
                 </div>
                 <TrailsContainer/>

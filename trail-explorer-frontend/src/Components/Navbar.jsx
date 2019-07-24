@@ -24,6 +24,9 @@ import {
 } from "shards-react";
 
 class NavExample extends React.Component {
+
+  image = require("../Images/trail-explorer-logo-text.png")
+
   constructor(props) {
     super(props)
 
@@ -57,13 +60,13 @@ class NavExample extends React.Component {
   render() {
     return (
       <Navbar type="dark" theme="primary" expand="md">
-        <NavbarBrand href="#">Trail Explorer</NavbarBrand>
+        <img src={this.image} className="text-logo" alt="logo"/>
+        {/* <NavbarBrand href="#">Trail Explorer</NavbarBrand> */}
         <NavbarToggler onClick={this.toggleNavbar} />
 
         <Collapse open={this.state.collapseOpen} navbar>
           <Nav navbar>
-            {/* ADD PATHS AND REDIRECTS FOR THESE LINKS */}
-            <Link to='/home'>
+            <Link to="/home">
               <NavItem>
                 <NavLink active>
                   Home
@@ -71,13 +74,13 @@ class NavExample extends React.Component {
               </NavItem>
             </Link>
 
-            <NavItem>
-              <NavLink active href="#">
-                Trails
-              </NavLink>
-            </NavItem>
-
-            
+            <Link to="/trails">
+              <NavItem>
+                <NavLink active>
+                  Trails
+                </NavLink>
+              </NavItem>
+            </Link>
 
               { this.props.loggedIn &&
                 <Fragment>
@@ -110,7 +113,6 @@ class NavExample extends React.Component {
                   </NavItem>
                 </Link>
               }
-
           </Nav>
 
           <Nav navbar className="ml-auto">
