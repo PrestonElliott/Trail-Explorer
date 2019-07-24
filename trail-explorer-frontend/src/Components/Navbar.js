@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "shards-ui/dist/css/shards.min.css"
@@ -62,11 +63,13 @@ class NavExample extends React.Component {
         <Collapse open={this.state.collapseOpen} navbar>
           <Nav navbar>
             {/* ADD PATHS AND REDIRECTS FOR THESE LINKS */}
-            <NavItem>
-              <NavLink active href="#">
-                Home
-              </NavLink>
-            </NavItem>
+            <Link to='/home'>
+              <NavItem>
+                <NavLink active>
+                  Home
+                </NavLink>
+              </NavItem>
+            </Link>
 
             <NavItem>
               <NavLink active href="#">
@@ -74,27 +77,40 @@ class NavExample extends React.Component {
               </NavLink>
             </NavItem>
 
-            { this.props.loggedIn &&
-            <Dropdown open={this.state.dropdownOpen} toggle={this.toggleDropdown}>
-              <DropdownToggle nav caret>
-                Profile
-              </DropdownToggle>
-                <DropdownMenu>
-                {/* ADD PATHS AND REDIRECTS FOR THESE LINKS */}
-                  <DropdownItem>My Profile</DropdownItem>
-                  <DropdownItem>Follower Feed</DropdownItem>
-                  <DropdownItem>Edit</DropdownItem>
-                </DropdownMenu>
-            </Dropdown>
-            }
+            
 
-            { this.props.loggedIn &&
-            <NavItem>
-              <NavLink active onClick={()=> this.props.dispatch({ type: 'LOG_OUT' }) }>
-                Log Out
-              </NavLink>
-            </NavItem> 
-            }
+              { this.props.loggedIn &&
+                <Fragment>
+                  <Dropdown open={this.state.dropdownOpen} toggle={this.toggleDropdown}>
+                    <DropdownToggle nav caret>
+                      Profile
+                    </DropdownToggle>
+                      <DropdownMenu>
+                      {/* ADD PATHS AND REDIRECTS FOR THESE LINKS */}
+                        <DropdownItem>My Profile</DropdownItem>
+                        <DropdownItem>Follower Feed</DropdownItem>
+                        <DropdownItem>Edit</DropdownItem>
+                      </DropdownMenu>
+                  </Dropdown>
+
+                  <NavItem>
+                    <NavLink active onClick={()=> this.props.dispatch({ type: 'LOG_OUT' }) }>
+                      Log Out
+                    </NavLink>
+                  </NavItem> 
+                </Fragment>
+              }
+
+              { !this.props.loggedIn &&
+                <Link to='/login'>
+                  <NavItem>
+                    <NavLink active>
+                      Login
+                    </NavLink>
+                  </NavItem>
+                </Link>
+              }
+
           </Nav>
 
           <Nav navbar className="ml-auto">

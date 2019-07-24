@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Navbar from "./Components/Navbar"
 import Login from "./Components/Login"
 import Profile from "./Components/Profile"
+import Home from "./Components/Home"
 import './App.css'
 
 class App extends React.Component {
@@ -28,6 +29,7 @@ class App extends React.Component {
         <Navbar />
 
         <Switch>
+          <Route exact path='/home' component={Home} />
           <Route path='/login' render={()=> this.props.loggedIn ? <Redirect to='/profile'/> : <Login/> } />
           <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />
         </Switch>
