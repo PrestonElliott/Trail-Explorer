@@ -18,11 +18,10 @@ class Profile extends Component {
                      <h4>{this.props.user.email}</h4>
                 </div>
                 <div>
-                    <Iframe title="trails-map" className="trails-map" position="absolute" frameborder="0" scrolling="no" 
-                        src="https://www.hikingproject.com/widget/map?favs=1&location=ip&x=-9402411&y=4020493&z=11.5&h=500">
+                    <Iframe title="trail-detail-map" className="trail-detail-map" frameborder="0" scrolling="no" 
+                        src="https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=0&x=-9401700&y=4014132&z=8">
                     </Iframe>
                 </div>
-                <TrailsContainer/>
             </div>
         )
     }

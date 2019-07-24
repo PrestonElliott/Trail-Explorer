@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getTrails, fetchedTrails } from "../Services/backend"
 import Trail from "../Components/Trail"
+import Iframe from 'react-iframe'
 
 class TrailsContainer extends Component {
     componentDidMount() {
@@ -13,8 +14,9 @@ class TrailsContainer extends Component {
         return ( 
             <div>
                 <h3> TRAILS HOMEPAGE</h3>
-                {/* <Trail/> */}
-
+                    <Iframe title="trails-map" className="trails-map" position="absolute" frameborder="0" scrolling="no" 
+                        src="https://www.hikingproject.com/widget/map?favs=1&location=ip&x=-9402411&y=4020493&z=11.5&h=500">
+                    </Iframe>
             </div> 
         )
     }

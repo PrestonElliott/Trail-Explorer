@@ -25,7 +25,9 @@ import {
 
 class NavExample extends React.Component {
 
-  image = require("../Images/trail-explorer-logo-text.png")
+  imageText = require("../Images/trail-explorer-logo-text.png")
+  imageLogo = require("../Images/trail-explorer-logo-main.png")
+
 
   constructor(props) {
     super(props)
@@ -60,7 +62,7 @@ class NavExample extends React.Component {
   render() {
     return (
       <Navbar type="dark" theme="primary" expand="md">
-        <img src={this.image} className="text-logo" alt="logo"/>
+        <img src={this.imageText} className="text-logo" alt="logo"/>
         {/* <NavbarBrand href="#">Trail Explorer</NavbarBrand> */}
         <NavbarToggler onClick={this.toggleNavbar} />
 
@@ -90,7 +92,9 @@ class NavExample extends React.Component {
                     </DropdownToggle>
                       <DropdownMenu>
                       {/* ADD PATHS AND REDIRECTS FOR THESE LINKS */}
-                        <DropdownItem>My Profile</DropdownItem>
+                        <Link to="/profile">
+                          <DropdownItem active>My Profile</DropdownItem>
+                        </Link>
                         <DropdownItem>Follower Feed</DropdownItem>
                         <DropdownItem>Edit</DropdownItem>
                       </DropdownMenu>
@@ -113,7 +117,11 @@ class NavExample extends React.Component {
                   </NavItem>
                 </Link>
               }
+
           </Nav>
+
+          {/* LOGO */}
+          <img src={this.imageLogo} className="image-logo" alt="image-logo"/>
 
           <Nav navbar className="ml-auto">
             <InputGroup size="sm" seamless>
