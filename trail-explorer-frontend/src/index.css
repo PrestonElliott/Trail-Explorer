@@ -8,9 +8,22 @@
   height: 100%
 }
 
+.trail-detail-map {
+  width: 75%;
+  /* height: 100%; */
+  max-width: 1200px;
+  height:410px;
+}
+
+/* NAVBAR CSS */
 .text-logo {
   width: 20%;
   height: 20%;
+}
+
+.image-logo {
+  width: 7%;
+  height: 7%;
 }
 
 /* CSS FROM REACT SHARDS */
