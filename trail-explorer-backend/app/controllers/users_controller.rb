@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     # Add back once login functionality works
-    skip_before_action :authorized, only: [:index, :create]
+    skip_before_action :authorized, only: [:index, :show, :create]
 
     def show 
         @user = User.find(params[:id])
