@@ -22,7 +22,6 @@ class SignUp extends React.Component {
             .then(res => {
                 if(res.jwt) {
                     localStorage.setItem('token', res.jwt)
-                    // console.log(localStorage)
                     this.props.dispatch({ type: 'GET_USER', user: res.user })
                 }
                 // else if(res.errors)

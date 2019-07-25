@@ -3,7 +3,6 @@ import { Fragment } from "react";
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
-import SignUp from "./SignUp"
 
 class Login extends React.Component {
 
