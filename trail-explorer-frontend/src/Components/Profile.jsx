@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getTrails, fetchedTrails } from "../Services/backend"
 import Iframe from 'react-iframe'
-import TrailsContainer from "../Containers/TrailsContainer"
 
 class Profile extends Component {
     componentDidMount() {
