@@ -68,21 +68,18 @@ class NavExample extends React.Component {
 
         <Collapse open={this.state.collapseOpen} navbar>
           <Nav navbar>
-            <Link to="/home">
+
               <NavItem>
-                <NavLink active>
+                <NavLink active href="/home">
                   Home
                 </NavLink>
               </NavItem>
-            </Link>
 
-            <Link to="/trails">
               <NavItem>
-                <NavLink active>
+                <NavLink active href="/trails">
                   Trails
                 </NavLink>
               </NavItem>
-            </Link>
 
               { this.props.loggedIn &&
                 <Fragment>
@@ -90,11 +87,8 @@ class NavExample extends React.Component {
                     <DropdownToggle nav caret>
                       Profile
                     </DropdownToggle>
-                      <DropdownMenu>
-                      {/* ADD PATHS AND REDIRECTS FOR THESE LINKS */}
-                        <Link to="/profile">
-                          <DropdownItem active>My Profile</DropdownItem>
-                        </Link>
+                      <DropdownMenu>                        
+                        <DropdownItem active href="/profile">My Profile</DropdownItem>
                         <DropdownItem>Follower Feed</DropdownItem>
                         <DropdownItem>Edit</DropdownItem>
                       </DropdownMenu>
@@ -109,17 +103,14 @@ class NavExample extends React.Component {
               }
 
               { !this.props.loggedIn &&
-                <Link to='/login'>
                   <NavItem>
-                    <NavLink active>
+                    <NavLink active href='/login'>
                       Login
                     </NavLink>
                   </NavItem>
-                </Link>
               }
           </Nav>
 
-          {/* LOGO */}
           <img src={this.imageLogo} className="image-logo" alt="image-logo"/>
 
           <Nav navbar className="ml-auto">
