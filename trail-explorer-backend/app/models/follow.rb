@@ -5,6 +5,5 @@ class Follow < ApplicationRecord
 
     #RELATIONSHIPS
     belongs_to :user
-    belongs_to :followed_user, class_name: 'User'  
-    
+    belongs_to :followed_user, class_name: 'User'    
 end

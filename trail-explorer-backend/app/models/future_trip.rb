@@ -3,9 +3,7 @@ class FutureTrip < ApplicationRecord
     validates :user, presence: true
 
     #RELATIONSHIPS
-    # belongs_to :trail
     belongs_to :user
     has_many :destinations, as: :trek
-    has_many :trails, through: :destinations
-    
+    has_many :trails, through: :destinations   
 end
