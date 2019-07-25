@@ -21,6 +21,13 @@ will = User.create(name: "Will", email: 'codejones@gmail.com', password: "123")
 tez = User.create(name: "Tez", email: 'tez@gmail.com', password: "123")
 hanaa = User.create(name: "Hanaa", email: 'hanaa@gmail.com', password: "123")
 
+25.times do
+    Follow.create(
+        followed_user: User.all.sample,
+        user: User.all.sample
+    )
+end
+
 f1 = Follow.create(followed_user: preston, user: andrew)
 f2 = Follow.create(followed_user: andrew, user: preston)
 f3 = Follow.create(followed_user: preston, user: romy)
