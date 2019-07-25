@@ -1,13 +1,15 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import "bootstrap/dist/css/bootstrap.min.css"
+import "shards-ui/dist/css/shards.min.css"
 import Navbar from "./Components/Navbar"
 import Login from "./Components/Login"
 import Profile from "./Components/Profile"
 import Home from "./Components/Home"
 import SignUp from "./Components/SignUp"
-import './App.css'
 import TrailsHome from './Components/TrailsHome';
+import './App.css'
 
 class App extends React.Component {
 
@@ -29,14 +31,18 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar />
-
-        <Switch>
-          <Route exact path='/home' component={Home} />
-          <Route exact path='/trails' component={TrailsHome} />
-          <Route path='/login' render={()=> this.props.loggedIn ? <Redirect to='/profile'/> : <Login/> } />
-          <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />
-          <Route exact path="/signup" component={SignUp} />
-        </Switch>
+        {
+          localStorage.token && !this.props.user.id ?
+          null
+          :
+          <Switch>
+            <Route exact path='/home' component={Home} />
+            <Route exact path='/trails' component={TrailsHome} />
+            <Route path='/login' render={()=> this.props.loggedIn ? <Redirect to='/profile'/> : <Login/> } />
+            <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />
+            <Route exact path="/signup" component={SignUp} />
+          </Switch>
+        }
       </div>
     )
   }

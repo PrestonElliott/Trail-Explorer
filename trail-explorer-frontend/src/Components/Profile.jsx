@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getTrails, fetchedTrails } from "../Services/backend"
 import Iframe from 'react-iframe'
+import TripsContainer from "../Containers/TripsContainer"
 
 class Profile extends Component {
-    componentDidMount() {
-        getTrails().then(this.props.fetchedTrails)
-    }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props.user.trips)
         return (
             <div>
                 <div className="user-profile">
@@ -21,10 +18,11 @@ class Profile extends Component {
                         src="https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=0&x=-9401700&y=4014132&z=8">
                     </Iframe>
                 </div>
+                <TripsContainer/>
             </div>
         )
     }
 }
 
 let mapStateToProps = state => ({ user: state.userReducer.user })
-export default connect(mapStateToProps, { fetchedTrails })(Profile)
+export default connect(mapStateToProps)(Profile)
