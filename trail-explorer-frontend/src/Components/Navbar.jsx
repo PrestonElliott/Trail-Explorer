@@ -1,14 +1,11 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
-import "bootstrap/dist/css/bootstrap.min.css"
-import "shards-ui/dist/css/shards.min.css"
 // import { faSearch } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Navbar,
   NavbarToggler,
-  NavbarBrand,
+  // NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -111,7 +108,7 @@ class NavExample extends React.Component {
               }
           </Nav>
 
-          <img src={this.imageLogo} className="image-logo" alt="image-logo"/>
+          <img src={this.imageLogo} className="image-logo" alt="trail-logo"/>
 
           <Nav navbar className="ml-auto">
             <InputGroup size="sm" seamless>

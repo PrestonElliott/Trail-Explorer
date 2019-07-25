@@ -1,14 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getTrails, fetchedTrails } from "../Services/backend"
-// import Trail from "./Trail"
 import Iframe from 'react-iframe'
 
 class TrailsHome extends Component {
-    componentDidMount() {
-        getTrails().then(this.props.fetchedTrails)
-        console.log(this.props)
-    }
 
     render() { 
         return ( 
@@ -23,4 +17,4 @@ class TrailsHome extends Component {
 }
 
 let mapStateToProps = state => ({ trail: state.trailReducer.trail })
-export default connect(mapStateToProps, { fetchedTrails })(TrailsHome)
+export default connect(mapStateToProps)(TrailsHome)
