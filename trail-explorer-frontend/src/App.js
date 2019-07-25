@@ -5,8 +5,9 @@ import Navbar from "./Components/Navbar"
 import Login from "./Components/Login"
 import Profile from "./Components/Profile"
 import Home from "./Components/Home"
+import SignUp from "./Components/SignUp"
 import './App.css'
-import TrailsContainer from './Containers/TrailsContainer';
+import TrailsHome from './Components/TrailsHome';
 
 class App extends React.Component {
 
@@ -31,9 +32,10 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path='/home' component={Home} />
-          <Route exact path='/trails' component={TrailsContainer} />
+          <Route exact path='/trails' component={TrailsHome} />
           <Route path='/login' render={()=> this.props.loggedIn ? <Redirect to='/profile'/> : <Login/> } />
           <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />
+          <Route exact path="/signup" component={SignUp} />
         </Switch>
       </div>
     )
