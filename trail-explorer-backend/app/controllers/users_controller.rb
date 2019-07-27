@@ -23,6 +23,15 @@ class UsersController < ApplicationController
         render json: @users
     end
 
+    def update
+        @user = User.find(params[:id])
+        if @user.update(user_params)
+            render json: @user, status: :accepted
+        else  
+            render json: { message: @user.errors.full_messages }, status: :unprocessable_entity
+        end
+    end
+
     def destroy
         @user = User.destroy(params[:id])
     end

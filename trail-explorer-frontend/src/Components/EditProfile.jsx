@@ -7,14 +7,28 @@ class EditProfile extends Component {
 
     handleEditProfile = (e) => {
         e.preventDefault()
-        console.log(e.target)
+        // console.log(e.target)
+        if(e.target.email.value && e.target.currentPassword.value) {
+            fetch(`http://localhost:3000/users/{this.props.user.id}`, {
+                method: "PATCH",
+                headers: {Accept: 'application/json', 'Content-Type':'application/json'},
+                body: JSON.stringify({
+                    user: {
+                        password: e.target.password.value
+                    }
+                })
+            })
+            .then(res => res.json())
+            .then(res => {
+                    this.props.dispatch({ type: 'GET_USER', user: res.user })
+            })
+        }
     }
 
     render() {
         return (
             <div>
                 <Modal.Dialog>
-
                     <Modal.Header>
                         <Modal.Title>Edit Profile</Modal.Title>
                     </Modal.Header>
@@ -23,18 +37,23 @@ class EditProfile extends Component {
                         <Form onSubmit={(e) => this.handleEditProfile(e)} >
 
                             <FormGroup>
-                                <label htmlFor="#name">Name</label>
-                                <FormInput name="name" id="#name" placeholder="Name" />
-                            </FormGroup>
-
-                            <FormGroup>
                                 <label htmlFor="#email">Email</label>
                                 <FormInput name="email" id="#email" placeholder="Email" />
                             </FormGroup>
                             
                             <FormGroup>
-                                <label htmlFor="#password">Password</label>
-                                <FormInput name="password" type="password" id="#password" placeholder="Password" />
+                                <label htmlFor="#current-password">Current Password</label>
+                                <FormInput name="currentPassword" type="password" id="#current-password" placeholder="Current Password" />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <label htmlFor="#password">New Password</label>
+                                <FormInput name="password" type="password" id="#password" placeholder="New Password" />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <label htmlFor="#confirm-password">Confirm Password</label>
+                                <FormInput name="confirmPassword" type="password" id="#confirm-password" placeholder="Confirm Password" />
                             </FormGroup>
 
                             <Button type="submit" variant="primary">Save changes</Button>
