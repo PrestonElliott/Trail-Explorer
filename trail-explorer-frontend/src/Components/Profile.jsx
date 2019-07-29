@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Iframe from 'react-iframe'
 import TripsContainer from "../Containers/TripsContainer"
+import FutureTripsContainer from "../Containers/FutureTripsContainer"
+
 
 class Profile extends Component {
 
@@ -19,6 +21,7 @@ class Profile extends Component {
                     </Iframe>
                 </div>
                 <TripsContainer/>
+                <FutureTripsContainer />
             </div>
         )
     }
