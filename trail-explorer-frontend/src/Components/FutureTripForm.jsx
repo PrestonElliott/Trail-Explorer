@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { Form, FormInput, FormGroup, FormSelect } from "shards-react"
+import { Form, FormInput, FormGroup } from "shards-react"
 
-class TripForm extends Component {
+class FutureTripForm extends Component {
 
     state = { 
         trails: [],
@@ -26,20 +26,18 @@ class TripForm extends Component {
         this.setState({ trail_ids: newArr })
     }
 
-    handleCreateTrip = (e) => {
+    handleCreateFutureTrip = (e) => {
         e.preventDefault()
         let form = e.target
 
-        fetch('http://localhost:3000/trips',{
+        fetch('http://localhost:3000/future_trips',{
             method: 'POST',
             headers: { Authorization: localStorage.token, Accept: 'application/json', 'Content-Type':'application/json' },
             body: JSON.stringify({
-                trip: {
+                future_trip: {
                     title: form.title.value,
-                    description: form.description.value,
+                    note: form.note.value,
                     location: form.location.value,
-                    stars: form.stars.value,
-                    image: form.image.value,
                     trail_ids: this.state.trail_ids
                 }
             })
@@ -47,7 +45,7 @@ class TripForm extends Component {
         .then(res => res.json())
         .then(res => {
             if(res.trip)
-                this.props.dispatch({ type: 'NEW_TRIP', trip: res.trip })
+                this.props.dispatch({ type: 'NEW_FUTURE_TRIP', future_trip: res.trip })
         })
     }
 
@@ -58,23 +56,19 @@ class TripForm extends Component {
         return (
             <div>
                 <Fragment>
-                    <Form onSubmit={(e) => this.handleCreateTrip(e)}>
-                        <h3>Create a New Trip!</h3>
+                    <Form onSubmit={(e) => this.handleCreateFutureTrip(e)}>
+                        <h3>Create a New Future Trip!</h3>
 
                         <FormGroup>
                             <FormInput required name="title" id="#title" placeholder="Title" />
                         </FormGroup>
 
                         <FormGroup>
-                            <FormInput name="description" id="#description" placeholder="Description" />
+                            <FormInput name="note" id="#note" placeholder="Note" />
                         </FormGroup>
 
                         <FormGroup>
                             <FormInput name="location" id="#location" placeholder="Location" />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <FormInput name="image" id="#image" placeholder="Image URL" />
                         </FormGroup>
 
                         <FormGroup>
@@ -87,17 +81,8 @@ class TripForm extends Component {
                             }
                         </FormGroup>
 
-                        <FormSelect name="stars" id="#stars"  >
-                            <option selected disabled>Stars</option>
-                            <option value="5">5</option>
-                            <option value="4">4</option>
-                            <option value="3">3</option>
-                            <option value="2">2</option>
-                            <option value="1">1</option>
-                        </FormSelect>
-
                         <FormGroup>
-                            <button type="submit">Submit Trip</button>
+                            <button type="submit">Submit Future Trip</button>
                         </FormGroup>
                     </Form>
                 </Fragment>
@@ -106,4 +91,4 @@ class TripForm extends Component {
     }
 }
 
-export default connect()(TripForm)
+export default connect()(FutureTripForm)

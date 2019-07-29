@@ -1,8 +1,16 @@
 class FutureTripsController < ApplicationController
+    skip_before_action :authorized, only: [:index]
 
     def create 
-        @future_trip = FutureTrip.create(future_trip_params)
-        render json: @future_trip
+        @future_trip = FutureTrip.new(future_trip_params)
+        @future_trip.user = @user
+        @future_trip.save
+
+        params[:future_trip][:trail_ids].each { |trail_id|
+            Destination.create(trek: @future_trip, trail_id: trail_id )
+        }
+
+        render json: { future_trip: FutureTripSerializer.new(@future_trip) }, status: :ok
     end
 
     def index
@@ -24,7 +32,7 @@ class FutureTripsController < ApplicationController
 
     private
     def future_trip_params
-        require(:future_trip).permit(:trail_id, :user_id, :note)
+        params.require(:future_trip).permit(:title, :note, :location)
     end
     
 end

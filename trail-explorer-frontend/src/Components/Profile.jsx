@@ -4,6 +4,7 @@ import Iframe from 'react-iframe'
 import TripsContainer from "../Containers/TripsContainer"
 import FutureTripsContainer from "../Containers/FutureTripsContainer"
 import TripForm from "./TripForm"
+import FutureTripForm from "./FutureTripForm"
 
 
 class Profile extends Component {
@@ -20,6 +21,7 @@ class Profile extends Component {
                         src="https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=0&x=-9401700&y=4014132&z=8">
                     </Iframe>
                 </div>
+                <FutureTripForm />
                 <TripForm />
                 <TripsContainer/>
                 <FutureTripsContainer />
