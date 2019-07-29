@@ -21,26 +21,23 @@ will = User.create(name: "Will", email: 'codejones@gmail.com', password: "123")
 tez = User.create(name: "Tez", email: 'tez@gmail.com', password: "123")
 hanaa = User.create(name: "Hanaa", email: 'hanaa@gmail.com', password: "123")
 
-25.times do
-    Follow.create(
-        followed_user: User.all.sample,
-        user: User.all.sample
-    )
-end
-
 f1 = Follow.create(followed_user: preston, user: andrew)
 f2 = Follow.create(followed_user: andrew, user: preston)
-f3 = Follow.create(followed_user: preston, user: romy)
-f4 = Follow.create(followed_user: preston, user: paula)
-f5 = Follow.create(followed_user: preston, user: dhara)
-f6 = Follow.create(followed_user: preston, user: han)
-f7 = Follow.create(followed_user: preston, user: jae)
-f8 = Follow.create(followed_user: preston, user: scott)
-f9 = Follow.create(followed_user: rose, user: romy)
-f10 = Follow.create(followed_user: rose, user: paula)
-f11 = Follow.create(followed_user: rose, user: dhara)
-f12 = Follow.create(followed_user: rose, user: han)
-f13 = Follow.create(followed_user: rose, user: jae)
+f3 = Follow.create(followed_user: rose, user: preston)
+f4 = Follow.create(followed_user: paula , user: preston)
+f5 = Follow.create(followed_user: deka , user: preston)
+f6 = Follow.create(followed_user: will , user: preston)
+f7 = Follow.create(followed_user: preston, user: romy)
+f8 = Follow.create(followed_user: preston, user: paula)
+f9 = Follow.create(followed_user: preston, user: dhara)
+f10 = Follow.create(followed_user: preston, user: han)
+f11 = Follow.create(followed_user: preston, user: jae)
+f12 = Follow.create(followed_user: preston, user: scott)
+f13 = Follow.create(followed_user: rose, user: romy)
+f14 = Follow.create(followed_user: rose, user: paula)
+f15 = Follow.create(followed_user: rose, user: dhara)
+f16 = Follow.create(followed_user: rose, user: han)
+f17 = Follow.create(followed_user: rose, user: jae)
 
 trail1 = Trail.create(
     api_index: 7021422,
@@ -122,9 +119,8 @@ trail5 = Trail.create(
       user_id: User.all.sample.id,
       description: Faker::Hipster.sentence,
       stars: rand(1..5),
-      image: "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjBq6bKwMHjAhWyc98KHdPCDtgQjRx6BAgBEAU&url=https%3A%2F%2Fwww.nationalgeographic.com%2Ftravel%2Fnational-parks%2Fyosemite-national-park%2F&psig=AOvVaw3LnzYPRZQSJfyrGivY2zdA&ust=1563643628412035"
+      image: "https://cdn.theunion.com/wp-content/uploads/sites/3/2019/07/OUTDayHiker-GVU-072619-0-1.jpg"
     )
-
 end
 
 20.times do 
