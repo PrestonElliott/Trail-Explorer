@@ -23,7 +23,7 @@ class FutureTrip extends Component {
             <div>
                 { this.renderFutureTripModal() }
 
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem' }} className="m-2" >
                     <Card.Body>
                     <Card.Text>
                         {this.props.futureTrip.title}

@@ -24,7 +24,7 @@ class Trip extends Component {
             <div>
                 { this.renderTripModal() }
 
-                <Card style={{ width: '18rem' }}>
+                <Card className="m-2" style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={this.props.trip.image} />
                     <Card.Body>
                     <Card.Text>

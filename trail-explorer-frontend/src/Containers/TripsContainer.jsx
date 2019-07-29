@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Trip from "../Components/Trip"
+import {Row, Col} from 'react-bootstrap'
 
 class TripsContainer extends Component {
     render() {
         return (
             <div>
-                <h4> {this.props.user.trips.map(trip => <Trip key={trip.id} trip={trip}/>)} </h4>
+                <Row> 
+                    {this.props.user.trips.map(trip => 
+                        <Col md={3}> <Trip key={trip.id} trip={trip}/> </Col>)
+                    }
+                </Row>
             </div>
         )
     }

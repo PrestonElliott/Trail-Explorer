@@ -103,7 +103,7 @@ class TripForm extends Component {
                             </FormSelect>
 
                             <FormGroup>
-                                <Button type="submit">Submit Trip</Button>
+                                <Button className="m-3" type="submit">Submit Trip</Button>
                             </FormGroup>
                         </Form>
 

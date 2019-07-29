@@ -57,6 +57,7 @@ class FutureTripForm extends Component {
         return (
             <div>
                 <Modal.Dialog>
+                
                     <Modal.Header>
                         <Modal.Title>Create a New Future Trip!</Modal.Title>
                     </Modal.Header>
@@ -91,6 +92,7 @@ class FutureTripForm extends Component {
                                 <Button type="submit">Submit Future Trip</Button>
                             </FormGroup>
                         </Form>
+
                     </Modal.Body>
                 </Modal.Dialog>
             </div>
