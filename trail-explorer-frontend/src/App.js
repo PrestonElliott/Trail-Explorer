@@ -9,6 +9,8 @@ import EditProfile from './Components/EditProfile'
 import FollowerFeed from "./Components/FollowerFeed"
 import SignUp from "./Components/SignUp"
 import TrailsHome from './Components/TrailsHome'
+import TripForm from "./Components/TripForm"
+import FutureTripForm from "./Components/FutureTripForm"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "shards-ui/dist/css/shards.min.css"
@@ -44,6 +46,8 @@ class App extends React.Component {
             <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/edit-profile" component={EditProfile} />
+            <Route exact path="/trip-form" component={TripForm} />
+            <Route exact path="/future-trip-form" component={FutureTripForm} />
           </Switch>
         }
       </div>
