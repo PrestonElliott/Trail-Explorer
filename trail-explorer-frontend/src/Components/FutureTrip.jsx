@@ -10,8 +10,10 @@ class FutureTrip extends Component {
     renderFutureTripModal = () => {
         Modal.setAppElement("#root")
         return <Modal id='future-trip-show-modal' isOpen={this.state.showModal} >
-            {/* CREATE NEW MIGRATION TO ADD MORE TRIP DETAILS */}
+            <h4>{this.props.futureTrip.title}</h4>
             <p>{this.props.futureTrip.note}</p>
+            <p>{this.props.futureTrip.location}</p>
+
             <Button onClick={()=> this.setState({ showModal: false }) } variant="secondary">Close</Button>
         </Modal>
     }
@@ -24,7 +26,7 @@ class FutureTrip extends Component {
                 <Card style={{ width: '18rem' }}>
                     <Card.Body>
                     <Card.Text>
-                        {this.props.futureTrip.note}
+                        {this.props.futureTrip.title}
                     </Card.Text>
                     <Button onClick={()=> this.setState({ showModal: true })} variant="primary">Future Trip Details</Button>
                     </Card.Body>

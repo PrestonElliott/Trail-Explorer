@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, Button } from "react-bootstrap"
+import { Card, Button, Image } from "react-bootstrap"
 import Modal from "react-modal"
 
 class Trip extends Component {
@@ -10,8 +10,9 @@ class Trip extends Component {
     renderTripModal = () => {
         Modal.setAppElement("#root")
         return <Modal id='trip-show-modal' isOpen={this.state.showModal} >
-            {/* CREATE NEW MIGRATION TO ADD MORE TRIP DETAILS */}
-            {/* <h4> {this.props.trip.title} </h4> */}
+            <h3> {this.props.trip.title} </h3>
+            <Image src={this.props.trip.image}></Image>
+            <h5>{this.props.trip.location}</h5>
             <p>{this.props.trip.description}</p>
             <p> {this.props.trip.stars} </p>
             <Button onClick={()=> this.setState({ showModal: false }) } variant="secondary">Close</Button>

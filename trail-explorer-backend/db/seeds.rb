@@ -17,7 +17,7 @@ evan = User.create(name: "Evan", email: 'evan@gmail.com', password: "123")
 deka = User.create(name: "Deka", email: 'deka@gmail.com', password: "123")
 rose = User.create(name: "Rose", email: 'rose@gmail.com', password: "123")
 tun = User.create(name: "Tun", email: 'tun@gmail.com', password: "123")
-will = User.create(name: "Will", email: 'codejones@gmail.com', password: "123")
+will = User.create(name: "Will", email: 'will@gmail.com', password: "123")
 tez = User.create(name: "Tez", email: 'tez@gmail.com', password: "123")
 hanaa = User.create(name: "Hanaa", email: 'hanaa@gmail.com', password: "123")
 
@@ -117,7 +117,9 @@ trail5 = Trail.create(
 50.times do
     Trip.create(
       user_id: User.all.sample.id,
+      title: Faker::Hipster.sentence(3),
       description: Faker::Hipster.sentence,
+      location: Faker::Address.city,
       stars: rand(1..5),
       image: "https://cdn.theunion.com/wp-content/uploads/sites/3/2019/07/OUTDayHiker-GVU-072619-0-1.jpg"
     )
@@ -126,7 +128,9 @@ end
 50.times do 
     FutureTrip.create(
         user_id: User.all.sample.id,
-        note: Faker::Hipster.words(9)
+        title: Faker::Hipster.sentence(3),
+        location: Faker::Address.city,
+        note: Faker::Hipster.sentence(9)
     )
 end
 

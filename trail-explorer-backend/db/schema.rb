@@ -37,7 +37,9 @@ ActiveRecord::Schema.define(version: 2019_07_24_195249) do
 
   create_table "future_trips", force: :cascade do |t|
     t.integer "user_id"
+    t.text "title"
     t.text "note"
+    t.text "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,7 +63,9 @@ ActiveRecord::Schema.define(version: 2019_07_24_195249) do
 
   create_table "trips", force: :cascade do |t|
     t.integer "user_id"
+    t.text "title"
     t.text "description"
+    t.text "location"
     t.float "stars"
     t.string "image"
     t.datetime "created_at", null: false
