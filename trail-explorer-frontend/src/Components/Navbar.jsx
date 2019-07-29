@@ -85,9 +85,9 @@ class NavExample extends React.Component {
                       Profile
                     </DropdownToggle>
                       <DropdownMenu>                        
-                        <DropdownItem active href="/profile">My Profile</DropdownItem>
-                        <DropdownItem>Follower Feed</DropdownItem>
-                        <DropdownItem>Edit</DropdownItem>
+                        <DropdownItem href="/profile">My Profile</DropdownItem>
+                        <DropdownItem >Follower Feed</DropdownItem>
+                        <DropdownItem  href="/edit-profile" >Edit</DropdownItem>
                       </DropdownMenu>
                   </Dropdown>
 
