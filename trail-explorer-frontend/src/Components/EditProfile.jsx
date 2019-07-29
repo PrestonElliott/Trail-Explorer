@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from "react-router-dom"
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
 
@@ -8,7 +9,7 @@ class EditProfile extends Component {
     handleEditProfile = (e) => {
         e.preventDefault()
         // console.log(e.target)
-        if(e.target.email.value && e.target.currentPassword.value) {
+        if(e.target.email.value && e.target.currentPassword.value && e.target.password.value === e.target.confirmPassword.value) {
             fetch(`http://localhost:3000/users/{this.props.user.id}`, {
                 method: "PATCH",
                 headers: {Accept: 'application/json', 'Content-Type':'application/json'},
@@ -56,8 +57,10 @@ class EditProfile extends Component {
                                 <FormInput name="confirmPassword" type="password" id="#confirm-password" placeholder="Confirm Password" />
                             </FormGroup>
 
-                            <Button type="submit" variant="primary">Save changes</Button>
-                            <Button variant="secondary">Cancel</Button>
+                            <Button type="submit" variant="primary">Save Changes</Button>
+                            <Link to="/home"> 
+                                <Button  variant="secondary">Cancel</Button>
+                            </Link> 
                         </Form>
                     </Modal.Body>
                 </Modal.Dialog>

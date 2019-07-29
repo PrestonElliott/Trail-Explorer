@@ -10,6 +10,7 @@ import Home from "./Components/Home"
 import SignUp from "./Components/SignUp"
 import TrailsHome from './Components/TrailsHome';
 import './App.css'
+import EditProfile from './Components/EditProfile';
 
 class App extends React.Component {
 
@@ -41,6 +42,7 @@ class App extends React.Component {
             <Route path='/login' render={()=> this.props.loggedIn ? <Redirect to='/profile'/> : <Login/> } />
             <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/edit-profile" component={EditProfile} />
           </Switch>
         }
       </div>
