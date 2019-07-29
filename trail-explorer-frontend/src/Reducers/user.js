@@ -10,6 +10,13 @@ export default (state = initialState, action) => {
             return { ...state, user: action.user, loggedIn: true }
         }
 
+        case "NEW_TRIP": {
+            console.log(action.trip)
+            let newArr = state.user.trips
+            newArr.push(action.trip)
+            return {...state, user: {...state.user, trips: newArr}}
+        }
+
         case "LOG_OUT": {
             localStorage.removeItem('token')
             return {...state, user: {}, loggedIn: false }

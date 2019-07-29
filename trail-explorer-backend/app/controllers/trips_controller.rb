@@ -1,8 +1,16 @@
 class TripsController < ApplicationController
     
     def create 
-        @trip = Trip.create(trip_params)
-        render json: @trip
+        @trip = Trip.new(trip_params)
+        @trip.user = @user
+        @trip.save
+
+        params[:trip][:trail_ids].each { |trail_id|
+            Destination.create(trek: @trip, trail_id: trail_id )
+        }
+        
+
+        render json: { trip: TripSerializer.new(@trip) }, status: :ok
     end
 
     def index
@@ -24,7 +32,7 @@ class TripsController < ApplicationController
 
     private
     def trip_params
-        require(:trip).permit(:trail_id, :user_id, :description, :stars, :image)
+        params.require(:trip).permit(:title, :location, :description, :stars, :image)
     end
 
 end
