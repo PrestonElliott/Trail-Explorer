@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup, FormSelect } from "shards-react"
+import { Button } from "react-bootstrap"
 
 class TripForm extends Component {
 
@@ -79,7 +80,7 @@ class TripForm extends Component {
 
                         <FormGroup>
                             { this.state.trails.map(trail => {
-                                return <Fragment>
+                                return <Fragment key={trail.id} >
                                         <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.id)} /> {trail.name}
                                         <br/>
                                     </Fragment>
@@ -87,8 +88,8 @@ class TripForm extends Component {
                             }
                         </FormGroup>
 
-                        <FormSelect name="stars" id="#stars"  >
-                            <option selected disabled>Stars</option>
+                        <FormSelect defaultValue='default' name="stars" id="#stars"  >
+                            <option disabled value='default'>Stars</option>
                             <option value="5">5</option>
                             <option value="4">4</option>
                             <option value="3">3</option>
@@ -97,7 +98,7 @@ class TripForm extends Component {
                         </FormSelect>
 
                         <FormGroup>
-                            <button type="submit">Submit Trip</button>
+                            <Button type="submit">Submit Trip</Button>
                         </FormGroup>
                     </Form>
                 </Fragment>

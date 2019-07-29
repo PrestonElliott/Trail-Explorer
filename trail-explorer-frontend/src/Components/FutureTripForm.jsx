@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup } from "shards-react"
+import { Button } from "react-bootstrap"
 
 class FutureTripForm extends Component {
 
@@ -73,7 +74,7 @@ class FutureTripForm extends Component {
 
                         <FormGroup>
                             { this.state.trails.map(trail => {
-                                return <Fragment>
+                                return <Fragment key={trail.id}>
                                         <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.id)} /> {trail.name}
                                         <br/>
                                     </Fragment>
@@ -82,7 +83,7 @@ class FutureTripForm extends Component {
                         </FormGroup>
 
                         <FormGroup>
-                            <button type="submit">Submit Future Trip</button>
+                            <Button type="submit">Submit Future Trip</Button>
                         </FormGroup>
                     </Form>
                 </Fragment>
