@@ -53,15 +53,12 @@ class Login extends React.Component {
                             <FormInput name="password" type="password" id="#password" placeholder="Password" />
                         </FormGroup>
 
-                        <Button type="submit">Login</Button><br/>
+                        <Button type="submit">Login</Button><br/><br/>
                     </Form>
-                </Modal.Body>
-
-                <Modal.Footer>
                     <Link to="/signup">
                         <Button> Create Your Account Today! </Button>
                     </Link>
-                </Modal.Footer>
+                </Modal.Body>
             </Modal.Dialog> 
         )
     }
