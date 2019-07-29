@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Iframe from 'react-iframe'
+import Trip from './Trip'
 import TripsContainer from "../Containers/TripsContainer"
-import EditProfile from './EditProfile';
 
 class Profile extends Component {
 
@@ -20,7 +20,15 @@ class Profile extends Component {
                     </Iframe>
                 </div>
                 <TripsContainer/>
-                <EditProfile />
+                <div className='tripcard-div'>
+                    {
+                        this.props.user.followed_users.map(friend => {
+                            return friend.trips.map(trip => {
+                                return <Trip key={trip.id} trip={trip} />
+                            })
+                        })
+                    }
+                </div>
             </div>
         )
     }
