@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react'
 import { connect } from 'react-redux'
 import Trip from './Trip'
 import FutureTrip from "./FutureTrip"
+import {Row, Col} from 'react-bootstrap'
 
 class FollowerFeed extends Component {
 
@@ -9,23 +10,21 @@ class FollowerFeed extends Component {
         return (
             <Fragment>
                 <div className='tripcard-div'>
-                    {
-                        this.props.user.followed_users.map(friend => {
-                            return friend.trips.map(trip => {
-                                return <Trip key={trip.id} trip={trip} />
-                            })
-                        })
-                    }
+                    <Row>
+                        {this.props.user.followed_users.map(friend => 
+                            friend.trips.map(trip => 
+                                <Col md={3}><Trip key={trip.id} trip={trip} /> </Col>))
+                        }
+                    </Row>
                 </div>
 
                 <div className='futuretripcard-div'>
-                    {
-                        this.props.user.followed_users.map(friend => {
-                            return friend.futureTrips.map(futureTrip => {
-                                return <FutureTrip key={futureTrip.id} futureTrip={futureTrip} />
-                            })
-                        })
-                    }
+                    <Row>
+                        {this.props.user.followed_users.map(friend => 
+                            friend.futureTrips.map(futureTrip => 
+                                <Col md={3}><FutureTrip key={futureTrip.id} futureTrip={futureTrip}/> </Col>))
+                        }
+                    </Row>
                 </div>
             </Fragment>
         )
