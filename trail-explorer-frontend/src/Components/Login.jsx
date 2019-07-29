@@ -1,8 +1,8 @@
-import React from "react"
-import { Fragment } from "react";
-import { Form, FormInput, FormGroup } from "shards-react"
+import React from "react";
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
+import { Form, FormInput, FormGroup } from "shards-react"
+import { Modal, Button } from "react-bootstrap"
 
 class Login extends React.Component {
 
@@ -30,33 +30,41 @@ class Login extends React.Component {
             })
             // e.target.password.value = ''
         }
-    
     }
 
     render() {
         return (
-            <Fragment>
-                <Form onSubmit={(e) => this.handleLogin(e)}>
-                    <h3>Login Form</h3>
+            <Modal.Dialog>
+                <Modal.Header>
+                    <Modal.Title>Edit Profile</Modal.Title>
+                </Modal.Header>
 
-                    <FormGroup>
-                        <label htmlFor="#email">Email</label>
-                        <FormInput name="email" id="#email" placeholder="Email" />
-                    </FormGroup>
+                <Modal.Body>
+                    <Form onSubmit={(e) => this.handleLogin(e)}>
+                        <h3>Login Form</h3>
 
-                    <FormGroup>
-                        <label htmlFor="#password">Password</label>
-                        <FormInput name="password" type="password" id="#password" placeholder="Password" />
-                        <button type="submit">Login</button>
-                    </FormGroup>
-                </Form>
-                <Link to="/signup">
-                    <button> Create Your Account! </button>
-                </Link>
-            </Fragment>
+                        <FormGroup>
+                            <label htmlFor="#email">Email</label>
+                            <FormInput name="email" id="#email" placeholder="Email" />
+                        </FormGroup>
+
+                        <FormGroup>
+                            <label htmlFor="#password">Password</label>
+                            <FormInput name="password" type="password" id="#password" placeholder="Password" />
+                        </FormGroup>
+
+                        <Button type="submit">Login</Button><br/>
+                    </Form>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Link to="/signup">
+                        <Button> Create Your Account Today! </Button>
+                    </Link>
+                </Modal.Footer>
+            </Modal.Dialog> 
         )
     }
 }
 
-// let mapStateToProps = state => ({})
 export default connect()(Login)

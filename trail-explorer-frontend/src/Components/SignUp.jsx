@@ -1,6 +1,7 @@
 import React from "react"
-import { Form, FormInput, FormGroup } from "shards-react"
 import { connect } from 'react-redux'
+import { Form, FormInput, FormGroup } from "shards-react"
+import { Modal, Button } from "react-bootstrap"
 
 class SignUp extends React.Component {
 
@@ -34,28 +35,37 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <Form onSubmit={(e) => this.handleSignUp(e)}>
-                <h3>Sign Up Form</h3>
+            <Modal.Dialog>
+                <Modal.Header>
+                    <h3>Sign Up Form</h3>
+                </Modal.Header>
 
-                <FormGroup>
-                    <label htmlFor="#name">Name</label>
-                    <FormInput name="name" id="#name" placeholder="Name" />
-                </FormGroup>
+                <Modal.Body>
 
-                <FormGroup>
-                    <label htmlFor="#email">Email</label>
-                    <FormInput name="email" id="#email" placeholder="Email" />
-                </FormGroup>
-                
-                <FormGroup>
-                    <label htmlFor="#password">Password</label>
-                    <FormInput name="password" type="password" id="#password" placeholder="Password" />
-                    <button type="submit">Submit</button>
-                </FormGroup>
-            </Form>
+                    <Form onSubmit={(e) => this.handleSignUp(e)}>
+                    
+                        <FormGroup>
+                            <label htmlFor="#name">Name</label>
+                            <FormInput name="name" id="#name" placeholder="Name" />
+                        </FormGroup>
+
+                        <FormGroup>
+                            <label htmlFor="#email">Email</label>
+                            <FormInput name="email" id="#email" placeholder="Email" />
+                        </FormGroup>
+                        
+                        <FormGroup>
+                            <label htmlFor="#password">Password</label>
+                            <FormInput name="password" type="password" id="#password" placeholder="Password" />
+                            <Button type="submit"> Submit </Button><br/>
+                        </FormGroup>
+                    </Form>
+                    
+                </Modal.Body>
+
+            </Modal.Dialog>
         )
     }
 }
 
-// let mapStateToProps = state => ({})
 export default connect()(SignUp)
