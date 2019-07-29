@@ -67,12 +67,6 @@ class NavExample extends React.Component {
           <Nav navbar>
 
               <NavItem>
-                <NavLink active href="/home">
-                  Home
-                </NavLink>
-              </NavItem>
-
-              <NavItem>
                 <NavLink active href="/trails">
                   Trails
                 </NavLink>
@@ -80,13 +74,18 @@ class NavExample extends React.Component {
 
               { this.props.loggedIn &&
                 <Fragment>
+                  <NavItem>
+                    <NavLink active href="/follower-feed">
+                      Follower Feed
+                    </NavLink>
+                  </NavItem>
+                
                   <Dropdown open={this.state.dropdownOpen} toggle={this.toggleDropdown}>
                     <DropdownToggle nav caret>
                       Profile
                     </DropdownToggle>
                       <DropdownMenu>                        
                         <DropdownItem href="/profile">My Profile</DropdownItem>
-                        <DropdownItem >Follower Feed</DropdownItem>
                         <DropdownItem  href="/edit-profile" >Edit</DropdownItem>
                       </DropdownMenu>
                   </Dropdown>

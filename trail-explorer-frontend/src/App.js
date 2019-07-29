@@ -6,7 +6,7 @@ import "shards-ui/dist/css/shards.min.css"
 import Navbar from "./Components/Navbar"
 import Login from "./Components/Login"
 import Profile from "./Components/Profile"
-import Home from "./Components/Home"
+import FollowerFeed from "./Components/FollowerFeed"
 import SignUp from "./Components/SignUp"
 import TrailsHome from './Components/TrailsHome';
 import './App.css'
@@ -36,7 +36,7 @@ class App extends React.Component {
           null
           :
           <Switch>
-            <Route exact path='/home' component={Home} />
+            <Route exact path='/follower-feed' component={FollowerFeed} />
             <Route exact path='/trails' component={TrailsHome} />
             <Route path='/login' render={()=> this.props.loggedIn ? <Redirect to='/profile'/> : <Login/> } />
             <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />
