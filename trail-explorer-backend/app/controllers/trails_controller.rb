@@ -1,4 +1,5 @@
 class TrailsController < ApplicationController
+    skip_before_action :authorized, only: [:index]
     
     def show
         begin @trail = Trail.find(params[:id])
