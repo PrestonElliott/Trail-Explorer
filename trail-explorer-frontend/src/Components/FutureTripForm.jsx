@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup } from "shards-react"
-import { Button } from "react-bootstrap"
+import { Modal, Button } from "react-bootstrap"
 
 class FutureTripForm extends Component {
 
@@ -56,37 +56,43 @@ class FutureTripForm extends Component {
 
         return (
             <div>
-                <Fragment>
-                    <Form onSubmit={(e) => this.handleCreateFutureTrip(e)}>
-                        <h3>Create a New Future Trip!</h3>
+                <Modal.Dialog>
+                    <Modal.Header>
+                        <Modal.Title>Create a New Future Trip!</Modal.Title>
+                    </Modal.Header>
 
-                        <FormGroup>
-                            <FormInput required name="title" id="#title" placeholder="Title" />
-                        </FormGroup>
+                    <Modal.Body>
 
-                        <FormGroup>
-                            <FormInput name="note" id="#note" placeholder="Note" />
-                        </FormGroup>
+                        <Form onSubmit={(e) => this.handleCreateFutureTrip(e)}>
 
-                        <FormGroup>
-                            <FormInput name="location" id="#location" placeholder="Location" />
-                        </FormGroup>
+                            <FormGroup>
+                                <FormInput required name="title" id="#title" placeholder="Title" />
+                            </FormGroup>
 
-                        <FormGroup>
-                            { this.state.trails.map(trail => {
-                                return <Fragment key={trail.id}>
-                                        <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.id)} /> {trail.name}
-                                        <br/>
-                                    </Fragment>
-                                })
-                            }
-                        </FormGroup>
+                            <FormGroup>
+                                <FormInput name="note" id="#note" placeholder="Note" />
+                            </FormGroup>
 
-                        <FormGroup>
-                            <Button type="submit">Submit Future Trip</Button>
-                        </FormGroup>
-                    </Form>
-                </Fragment>
+                            <FormGroup>
+                                <FormInput name="location" id="#location" placeholder="Location" />
+                            </FormGroup>
+
+                            <FormGroup>
+                                { this.state.trails.map(trail => {
+                                    return <Fragment key={trail.id}>
+                                            <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.id)} /> {trail.name}
+                                            <br/>
+                                        </Fragment>
+                                    })
+                                }
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Button type="submit">Submit Future Trip</Button>
+                            </FormGroup>
+                        </Form>
+                    </Modal.Body>
+                </Modal.Dialog>
             </div>
         )
     }

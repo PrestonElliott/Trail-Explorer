@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup, FormSelect } from "shards-react"
-import { Button } from "react-bootstrap"
+import { Modal, Button } from "react-bootstrap"
 
 class TripForm extends Component {
 
@@ -58,50 +58,57 @@ class TripForm extends Component {
 
         return (
             <div>
-                <Fragment>
-                    <Form onSubmit={(e) => this.handleCreateTrip(e)}>
-                        <h3>Create a New Trip!</h3>
+                <Modal.Dialog>
+                    <Modal.Header>
+                        <Modal.Title>Create a New Trip!</Modal.Title>
+                    </Modal.Header>
 
-                        <FormGroup>
-                            <FormInput required name="title" id="#title" placeholder="Title" />
-                        </FormGroup>
+                    <Modal.Body>
 
-                        <FormGroup>
-                            <FormInput name="description" id="#description" placeholder="Description" />
-                        </FormGroup>
+                        <Form onSubmit={(e) => this.handleCreateTrip(e)}>
 
-                        <FormGroup>
-                            <FormInput name="location" id="#location" placeholder="Location" />
-                        </FormGroup>
+                            <FormGroup>
+                                <FormInput required name="title" id="#title" placeholder="Title" />
+                            </FormGroup>
 
-                        <FormGroup>
-                            <FormInput name="image" id="#image" placeholder="Image URL" />
-                        </FormGroup>
+                            <FormGroup>
+                                <FormInput name="description" id="#description" placeholder="Description" />
+                            </FormGroup>
 
-                        <FormGroup>
-                            { this.state.trails.map(trail => {
-                                return <Fragment key={trail.id} >
-                                        <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.id)} /> {trail.name}
-                                        <br/>
-                                    </Fragment>
-                                })
-                            }
-                        </FormGroup>
+                            <FormGroup>
+                                <FormInput name="location" id="#location" placeholder="Location" />
+                            </FormGroup>
 
-                        <FormSelect defaultValue='default' name="stars" id="#stars"  >
-                            <option disabled value='default'>Stars</option>
-                            <option value="5">5</option>
-                            <option value="4">4</option>
-                            <option value="3">3</option>
-                            <option value="2">2</option>
-                            <option value="1">1</option>
-                        </FormSelect>
+                            <FormGroup>
+                                <FormInput name="image" id="#image" placeholder="Image URL" />
+                            </FormGroup>
 
-                        <FormGroup>
-                            <Button type="submit">Submit Trip</Button>
-                        </FormGroup>
-                    </Form>
-                </Fragment>
+                            <FormGroup>
+                                { this.state.trails.map(trail => {
+                                    return <Fragment key={trail.id} >
+                                            <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.id)} /> {trail.name}
+                                            <br/>
+                                        </Fragment>
+                                    })
+                                }
+                            </FormGroup>
+
+                            <FormSelect defaultValue='default' name="stars" id="#stars"  >
+                                <option disabled value='default'>Stars</option>
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </FormSelect>
+
+                            <FormGroup>
+                                <Button type="submit">Submit Trip</Button>
+                            </FormGroup>
+                        </Form>
+
+                    </Modal.Body>
+                </Modal.Dialog>
             </div>
         )
     }
