@@ -1,16 +1,18 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import "bootstrap/dist/css/bootstrap.min.css"
-import "shards-ui/dist/css/shards.min.css"
+
 import Navbar from "./Components/Navbar"
 import Login from "./Components/Login"
 import Profile from "./Components/Profile"
+import EditProfile from './Components/EditProfile';
 import FollowerFeed from "./Components/FollowerFeed"
 import SignUp from "./Components/SignUp"
 import TrailsHome from './Components/TrailsHome';
+
+import "bootstrap/dist/css/bootstrap.min.css"
+import "shards-ui/dist/css/shards.min.css"
 import './App.css'
-import EditProfile from './Components/EditProfile';
 
 class App extends React.Component {
 
