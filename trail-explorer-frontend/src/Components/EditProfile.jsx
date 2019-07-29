@@ -34,6 +34,10 @@ class EditProfile extends Component {
                 }
             })
         }
+        else {
+            // this.props.error
+            
+        }
     }
 
     render() {
