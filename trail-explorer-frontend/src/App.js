@@ -21,7 +21,6 @@ class App extends React.Component {
       })
       .then(res => res.json())
       .then(res => {
-        console.log(res)
         if(res.user)
           this.props.dispatch({ type: 'GET_USER', user: res.user })
       })

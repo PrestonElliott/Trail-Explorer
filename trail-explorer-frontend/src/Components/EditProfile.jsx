@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
 
 class EditProfile extends Component {
 
+    state = { redirect: null }
+
     handleEditProfile = (e) => {
         e.preventDefault()
         // console.log(e.target)
         if(e.target.email.value && e.target.currentPassword.value && e.target.password.value === e.target.confirmPassword.value) {
-            fetch(`http://localhost:3000/users/{this.props.user.id}`, {
+            fetch(`http://localhost:3000/users/${this.props.user.id}`, {
                 method: "PATCH",
-                headers: {Accept: 'application/json', 'Content-Type':'application/json'},
+                headers: {
+                    Authorization: localStorage.token,
+                    Accept: 'application/json', 
+                    'Content-Type':'application/json'
+                },
                 body: JSON.stringify({
                     user: {
                         password: e.target.password.value
@@ -21,7 +27,11 @@ class EditProfile extends Component {
             })
             .then(res => res.json())
             .then(res => {
+                // console.log(res)
+                if (res.user) {
                     this.props.dispatch({ type: 'GET_USER', user: res.user })
+                    this.setState({ redirect: <Redirect to='/profile' /> })
+                }
             })
         }
     }
@@ -29,13 +39,15 @@ class EditProfile extends Component {
     render() {
         return (
             <div>
+                { this.state.redirect }
+
                 <Modal.Dialog>
                     <Modal.Header>
                         <Modal.Title>Edit Profile</Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body>
-                        <Form onSubmit={(e) => this.handleEditProfile(e)} >
+                        <Form onSubmit={ this.handleEditProfile } >
 
                             <FormGroup>
                                 <label htmlFor="#email">Email</label>
@@ -58,7 +70,7 @@ class EditProfile extends Component {
                             </FormGroup>
 
                             <Button type="submit" variant="primary">Save Changes</Button>
-                            <Link to="/home"> 
+                            <Link to="/trails"> 
                                 <Button  variant="secondary">Cancel</Button>
                             </Link> 
                         </Form>

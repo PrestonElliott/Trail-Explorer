@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap"
 
 class Trip extends Component {
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <div>
                 <Card style={{ width: '18rem' }}>
