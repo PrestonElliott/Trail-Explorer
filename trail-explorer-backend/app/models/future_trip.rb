@@ -5,5 +5,8 @@ class FutureTrip < ApplicationRecord
     #RELATIONSHIPS
     belongs_to :user
     has_many :destinations, as: :trek
-    has_many :trails, through: :destinations   
+    
+    def trail_names
+        self.destinations.map(&:trail_name)
+    end
 end

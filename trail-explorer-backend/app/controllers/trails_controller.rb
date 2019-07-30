@@ -4,7 +4,6 @@ class TrailsController < ApplicationController
     
     
     skip_before_action :authorized
-    # &sort=#{params[:sort]}
     
     def trails_search
         lat = params[:lat].sub('!', '.')

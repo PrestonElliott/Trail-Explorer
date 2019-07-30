@@ -7,8 +7,8 @@ class FutureTripsController < ApplicationController
         @future_trip.user = @user
         @future_trip.save
 
-        params[:future_trip][:trail_ids].each { |trail_id|
-            Destination.create(trek: @future_trip, trail_id: trail_id )
+        params[:future_trip][:trail_names].each { |trail_name|
+            Destination.create(trek: @future_trip, trail_name: trail_name )
         }
 
         render json: { future_trip: FutureTripSerializer.new(@future_trip) }, status: :ok

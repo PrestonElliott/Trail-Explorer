@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Iframe from 'react-iframe'
-import Trail from "./Trail"
+import Trails from "./Trails"
 
 class TrailsHome extends Component {
 
@@ -9,10 +9,13 @@ class TrailsHome extends Component {
         return ( 
             <div>
                 <h3> FIND A TRAIL NEAR YOU! </h3>
-                <Trail/>
-                <Iframe title="trails-map" className="trails-map" position="absolute" frameborder="0" scrolling="no" 
+                <Iframe title="trails-map" className="trails-map" frameborder="0" scrolling="yes" 
                     src="https://www.hikingproject.com/widget/map?favs=1&location=ip&x=-9402411&y=4020493&z=11.5&h=500">
                 </Iframe>
+                <div>
+                    <Trails/>
+                </div>
+
             </div> 
         )
     }

@@ -8,12 +8,14 @@ class Trip extends Component {
     state = { showModal: false }
 
     renderTripModal = () => {
+        console.log(this.props.trip)
         Modal.setAppElement("#root")
         return <Modal id='trip-show-modal' isOpen={this.state.showModal} >
             <h3> {this.props.trip.title} </h3>
             <Image src={this.props.trip.image}></Image>
             <h5>{this.props.trip.location}</h5>
             <p>{this.props.trip.description}</p>
+            <ul>{this.props.trip.trail_names.map(trail_name => <li>{trail_name}</li>)}</ul>
             <p> {this.props.trip.stars} </p>
             <Button onClick={()=> this.setState({ showModal: false }) } variant="secondary">Close</Button>
         </Modal>
