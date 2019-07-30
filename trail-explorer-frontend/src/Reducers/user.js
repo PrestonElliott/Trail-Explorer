@@ -12,15 +12,17 @@ export default (state = initialState, action) => {
 
         case "NEW_TRIP": {
             console.log(action.trip)
-            let newArr = state.user.trips
+
+            let newArr = state.user.trips.slice()
             newArr.push(action.trip)
             return {...state, user: {...state.user, trips: newArr}}
         }
 
         case "NEW_FUTURE_TRIP": {
-            console.log(action.trip)
-            let newArr = state.user.trips
-            newArr.push(action.trip)
+            console.log(action.future_trip)
+            
+            let newArr = state.user.future_trips.slice()
+            newArr.push(action.future_trip)
             return {...state, user: {...state.user, future_trips: newArr}}
         }
 

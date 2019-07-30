@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
@@ -6,23 +7,30 @@ import { Modal, Button } from "react-bootstrap"
 class FutureTripForm extends Component {
 
     state = { 
-        trails: [],
-        trail_ids: []
+        redirect: null,
+        trail_names: []
+    }
+
+    fetchTrails = (lat, lon) => {
+        const maxResults = 25
+        const decimalReplaceLat = lat.replace('.', '!')
+        const decimalReplaceLon = lon.replace('.', '!')
+        fetch(`http://localhost:3000/trails&lat=${decimalReplaceLat}&lon=${decimalReplaceLon}&maxResults=${maxResults}`)
+        .then(res => res.json())
+        .then(res => this.props.dispatch({ type: "FETCH_TRAILS", data: res }))
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/trails')
-        .then(res=>res.json())
-        .then(trails => this.setState({ trails }))
+        this.fetchTrails("33.7490", "-84.3880")
     }
 
-    handleCheckboxChange = (target, trail_id) => {
-        let newArr = this.state.trail_ids
+    handleCheckboxChange = (target, trail_name) => {
+        let newArr = this.state.trail_names
 
         if (target.checked)
-            newArr.push(trail_id)
+            newArr.push(trail_name)
         else 
-            newArr.splice(newArr.indexOf(trail_id), 1)
+            newArr.splice(newArr.indexOf(trail_name), 1)
 
         this.setState({ trail_ids: newArr })
     }
@@ -33,29 +41,35 @@ class FutureTripForm extends Component {
 
         fetch('http://localhost:3000/future_trips',{
             method: 'POST',
-            headers: { Authorization: localStorage.token, Accept: 'application/json', 'Content-Type':'application/json' },
+            headers: { Authorization: localStorage.token, 
+                    Accept: 'application/json', 
+                    'Content-Type':'application/json' },
             body: JSON.stringify({
                 future_trip: {
                     title: form.title.value,
                     note: form.note.value,
                     location: form.location.value,
-                    trail_ids: this.state.trail_ids
+                    trail_names: this.state.trail_names
                 }
             })
         })
         .then(res => res.json())
         .then(res => {
-            if(res.trip)
-                this.props.dispatch({ type: 'NEW_FUTURE_TRIP', future_trip: res.trip })
+            if(res.future_trip) {
+                this.props.dispatch({ type: 'NEW_FUTURE_TRIP', future_trip: res.future_trip })
+                this.setState({ redirect: <Redirect to='/profile' /> })
+            }
         })
     }
 
     render() {
-        if (!this.state.trails[0])
+        if (!this.props.trail[0])
             return null
 
         return (
             <div>
+                { this.state.redirect }
+
                 <Modal.Dialog>
                 
                     <Modal.Header>
@@ -79,9 +93,9 @@ class FutureTripForm extends Component {
                             </FormGroup>
 
                             <FormGroup>
-                                { this.state.trails.map(trail => {
+                                { this.props.trail.map(trail => {
                                     return <Fragment key={trail.id}>
-                                            <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.id)} /> {trail.name}
+                                            <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.name)} /> {trail.name}
                                             <br/>
                                         </Fragment>
                                     })
@@ -100,4 +114,5 @@ class FutureTripForm extends Component {
     }
 }
 
-export default connect()(FutureTripForm)
+let mapStateToProps = state => ({ trail: state.trailReducer.trail })
+export default connect(mapStateToProps)(FutureTripForm)

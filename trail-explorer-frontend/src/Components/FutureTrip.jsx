@@ -8,11 +8,13 @@ class FutureTrip extends Component {
     state = { showModal: false }
 
     renderFutureTripModal = () => {
+
         Modal.setAppElement("#root")
         return <Modal id='future-trip-show-modal' isOpen={this.state.showModal} >
             <h4>{this.props.futureTrip.title}</h4>
-            <p>{this.props.futureTrip.note}</p>
             <p>{this.props.futureTrip.location}</p>
+            <p>{this.props.futureTrip.note}</p>
+            <ul>{this.props.futureTrip.trail_names.map(trail_name => <li>{trail_name}</li>)}</ul>
 
             <Button onClick={()=> this.setState({ showModal: false }) } variant="secondary">Close</Button>
         </Modal>
