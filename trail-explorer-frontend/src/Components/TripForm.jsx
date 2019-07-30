@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup, FormSelect } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
@@ -6,25 +7,38 @@ import { Modal, Button } from "react-bootstrap"
 class TripForm extends Component {
 
     state = { 
-        trails: [],
-        trail_ids: []
+        redirect: null,
+        trail_names: []
+    }
+
+    fetchTrails = (lat, lon) => {
+        const maxResults = 25
+        const decimalReplaceLat = lat.replace('.', '!')
+        const decimalReplaceLon = lon.replace('.', '!')
+        fetch(`http://localhost:3000/trails&lat=${decimalReplaceLat}&lon=${decimalReplaceLon}&maxResults=${maxResults}`)
+        .then(res => res.json())
+        .then(res => this.props.dispatch({ type: "FETCH_TRAILS", data: res }))
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/trails')
-        .then(res=>res.json())
-        .then(trails => this.setState({ trails }))
+        this.fetchTrails("33.7490", "-84.3880")
     }
 
-    handleCheckboxChange = (target, trail_id) => {
-        let newArr = this.state.trail_ids
+    // componentDidMount() {
+    //     fetch('http://localhost:3000/trails')
+    //     .then(res=>res.json())
+    //     .then(trails => this.setState({ trails }))
+    // }
+
+    handleCheckboxChange = (target, trail_name) => {
+        let newArr = this.state.trail_names
 
         if (target.checked)
-            newArr.push(trail_id)
+            newArr.push(trail_name)
         else 
-            newArr.splice(newArr.indexOf(trail_id), 1)
+            newArr.splice(newArr.indexOf(trail_name), 1)
 
-        this.setState({ trail_ids: newArr })
+        this.setState({ trail_names: newArr })
     }
 
     handleCreateTrip = (e) => {
@@ -43,23 +57,29 @@ class TripForm extends Component {
                     location: form.location.value,
                     stars: form.stars.value,
                     image: form.image.value,
-                    trail_ids: this.state.trail_ids
+                    trail_names: this.state.trail_names
                 }
             })
         })
         .then(res => res.json())
         .then(res => {
-            if(res.trip)
+            if(res.trip) {
                 this.props.dispatch({ type: 'NEW_TRIP', trip: res.trip })
+                this.setState({ redirect: <Redirect to='/profile' /> })
+            }
         })
     }
 
     render() {
-        if (!this.state.trails[0])
+        if (!this.props.trail[0])
             return null
+
+            console.log(this.state.trail_names)
 
         return (
             <div>
+                { this.state.redirect }
+
                 <Modal.Dialog>
                     <Modal.Header>
                         <Modal.Title>Create a New Trip!</Modal.Title>
@@ -85,10 +105,10 @@ class TripForm extends Component {
                                 <FormInput name="image" id="#image" placeholder="Image URL" />
                             </FormGroup>
 
-                            <FormGroup>
-                                { this.state.trails.map(trail => {
+                            <FormGroup className='trails-checklist'>
+                                { this.props.trail.map(trail => {
                                     return <Fragment key={trail.id} >
-                                            <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.id)} /> {trail.name}
+                                            <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.name)} /> {trail.name}
                                             <br/>
                                         </Fragment>
                                     })
@@ -116,4 +136,5 @@ class TripForm extends Component {
     }
 }
 
-export default connect()(TripForm)
+let mapStateToProps = state => ({ trail: state.trailReducer.trail })
+export default connect(mapStateToProps)(TripForm)

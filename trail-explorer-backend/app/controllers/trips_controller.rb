@@ -5,10 +5,10 @@ class TripsController < ApplicationController
         @trip.user = @user
         @trip.save
 
-        params[:trip][:trail_ids].each { |trail_id|
-            Destination.create(trek: @trip, trail_id: trail_id )
+        params[:trip][:trail_names].each { |trail_name|
+            Destination.create(trek: @trip, trail_name: trail_name )
         }
-        
+            
 
         render json: { trip: TripSerializer.new(@trip) }, status: :ok
     end

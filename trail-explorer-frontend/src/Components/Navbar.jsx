@@ -79,6 +79,7 @@ class NavExample extends React.Component {
                       Follower Feed
                     </NavLink>
                   </NavItem>
+                  
                 
                   <Dropdown open={this.state.dropdownOpen} toggle={this.toggleDropdown}>
                     <DropdownToggle nav caret>

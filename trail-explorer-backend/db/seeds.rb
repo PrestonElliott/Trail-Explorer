@@ -114,7 +114,7 @@ trail5 = Trail.create(
     latitude: 35.752
 )
 
-50.times do
+25.times do
     Trip.create(
       user_id: User.all.sample.id,
       title: Faker::Hipster.sentence(3),
@@ -125,7 +125,7 @@ trail5 = Trail.create(
     )
 end
 
-50.times do 
+25.times do 
     FutureTrip.create(
         user_id: User.all.sample.id,
         title: Faker::Hipster.sentence(3),
@@ -134,9 +134,16 @@ end
     )
 end
 
-20.times do 
+100.times do 
     Destination.create(
-        trail: Trail.all.sample,
+        trail_name: Trail.all.sample.name,
+        trek: Trip.all.sample
+    )
+end
+
+100.times do 
+    Destination.create(
+        trail_name: Trail.all.sample.name,
         trek: FutureTrip.all.sample
     )
 end
