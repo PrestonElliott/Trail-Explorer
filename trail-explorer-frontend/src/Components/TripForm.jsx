@@ -24,12 +24,6 @@ class TripForm extends Component {
         this.fetchTrails("33.7490", "-84.3880")
     }
 
-    // componentDidMount() {
-    //     fetch('http://localhost:3000/trails')
-    //     .then(res=>res.json())
-    //     .then(trails => this.setState({ trails }))
-    // }
-
     handleCheckboxChange = (target, trail_name) => {
         let newArr = this.state.trail_names
 
@@ -73,9 +67,6 @@ class TripForm extends Component {
     render() {
         if (!this.props.trail[0])
             return null
-
-            console.log(this.state.trail_names)
-
         return (
             <div>
                 { this.state.redirect }
