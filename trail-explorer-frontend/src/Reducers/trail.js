@@ -9,10 +9,6 @@ export default (state = initialState, action) => {
         return {...state, trail: action.data }
         }
 
-        // case "GET_TRAILS": {
-        // return { ...state, trail: action.data }
-        // }
-
         default: {
         return state
         }

@@ -1,9 +1,9 @@
-import React from "react"
+import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
 
-class SignUp extends React.Component {
+class SignUp extends Component {
 
     handleSignUp = (e) => {
         e.preventDefault()

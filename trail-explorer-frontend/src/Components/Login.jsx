@@ -25,10 +25,7 @@ class Login extends React.Component {
                     localStorage.setItem('token', res.jwt)
                     this.props.dispatch({ type: 'GET_USER', user: res.user })
                 }
-                // else if(res.errors)
-                //     this.setState({ errors: res.errors })
             })
-            // e.target.password.value = ''
         }
     }
 
