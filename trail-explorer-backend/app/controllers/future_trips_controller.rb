@@ -1,4 +1,5 @@
 class FutureTripsController < ApplicationController
+    
     skip_before_action :authorized, only: [:index]
 
     def create 
