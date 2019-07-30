@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    # Add back once login functionality works
+    
     before_action :authorized
 
     def authorized

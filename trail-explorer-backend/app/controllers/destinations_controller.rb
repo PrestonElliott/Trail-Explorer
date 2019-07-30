@@ -1,4 +1,5 @@
 class DestinationsController < ApplicationController
+    
     def create 
         @destination = Destination.create(destination_params)
         render json: @destination
