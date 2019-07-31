@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card, Button, Image } from "react-bootstrap"
+import { FaStar } from "react-icons/fa"
 import Modal from "react-modal"
 
 class Trip extends Component {
-
     state = { showModal: false }
 
     renderTripModal = () => {
         Modal.setAppElement("#root")
         return <Modal id='trip-show-modal' isOpen={this.state.showModal} >
             <h3> {this.props.trip.title} </h3>
-            <Image src={this.props.trip.image}></Image>
+            <Image id="trip-modal-image" src={this.props.trip.image}></Image>
             <h5>{this.props.trip.location}</h5>
             <p>{this.props.trip.description}</p>
             <ul>{this.props.trip.trail_names.map(trail_name => <li>{trail_name}</li>)}</ul>
-            <p> {this.props.trip.stars} </p>
+            <p> {this.props.trip.stars} <FaStar/> </p>
             <Button onClick={()=> this.setState({ showModal: false }) } variant="secondary">Close</Button>
         </Modal>
     }
@@ -25,11 +25,11 @@ class Trip extends Component {
             <div>
                 { this.renderTripModal() }
 
-                <Card className="m-2" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={this.props.trip.image} />
+                <Card id="trip-card" className="m-2">
+                    <Card.Img variant="top" id="trip-card-image" src={this.props.trip.image} />
                     <Card.Body>
                     <Card.Text>
-                        {this.props.trip.description}
+                        {this.props.trip.title}
                     </Card.Text>
                     <Button onClick={()=> this.setState({ showModal: true })} variant="primary">Trip Details</Button>
                     </Card.Body>
@@ -41,3 +41,6 @@ class Trip extends Component {
 
 let mapStateToProps = state => ({ user: state.userReducer.user })
 export default connect(mapStateToProps)(Trip)
+
+
+

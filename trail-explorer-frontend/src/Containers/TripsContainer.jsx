@@ -19,3 +19,5 @@ class TripsContainer extends Component {
 
 let mapStateToProps = state => ({ user: state.userReducer.user })
 export default connect(mapStateToProps)(TripsContainer)
+
+
