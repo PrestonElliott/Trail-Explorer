@@ -92,7 +92,7 @@ class FutureTripForm extends Component {
                                 <FormInput name="location" id="#location" placeholder="Location" />
                             </FormGroup>
 
-                            <FormGroup>
+                            <FormGroup className='trails-checklist'>
                                 { this.props.trail.map(trail => {
                                     return <Fragment key={trail.id}>
                                             <input type='checkbox' onChange={ e => this.handleCheckboxChange(e.target, trail.name)} /> {trail.name}

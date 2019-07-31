@@ -16,17 +16,21 @@ class Profile extends Component {
                 <div className="user-profile">
                     <h3>Hey {this.props.user.name}!</h3>
                 </div>
-                <div>
+
+                <Link to="/trip-form"> 
+                    <Button  variant="primary">Log Your Trip!</Button>
+                </Link> 
+
+                <Link to="/future-trip-form"> 
+                    <Button  variant="primary">Create a Future Trip!</Button>
+                </Link> 
+
+                <div id="featured-trail-map">
                     <Iframe title="trail-detail-map" className="trail-detail-map" frameborder="0" scrolling="no" 
                         src="https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=0&x=-9401700&y=4014132&z=8">
                     </Iframe>
                 </div>
-                <Link to="/trip-form"> 
-                    <Button  variant="secondary">Log Your Trip!</Button>
-                </Link> 
-                <Link to="/future-trip-form"> 
-                    <Button  variant="secondary">Create a Future Trip!</Button>
-                </Link> 
+                
                 <TripsContainer/>
                 <FutureTripsContainer />
             </div>
