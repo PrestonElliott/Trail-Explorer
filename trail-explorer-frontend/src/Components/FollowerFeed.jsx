@@ -10,7 +10,7 @@ class FollowerFeed extends Component {
         console.log(this.props.user.followed_users)
         return (
             <Fragment>
-                <br/><h2>Your Followers Feed!</h2><br/>
+                <br/><h2>Your Followers Recent Trips!</h2><br/>
                 <div className='tripcard-div'>
                     <Row id="follower-row">
                         {this.props.user.followed_users.map(friend => 
@@ -19,7 +19,7 @@ class FollowerFeed extends Component {
                         }
                     </Row>
                 </div>
-
+                <br/><h2>Your Followers Future Trips!</h2><br/>
                 <div className='futuretripcard-div'>
                     <Row>
                         {this.props.user.followed_users.map(friend => 

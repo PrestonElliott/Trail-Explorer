@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
+import LoginDiv from "../LoginDiv"
 
 class Login extends React.Component {
 
@@ -31,33 +32,35 @@ class Login extends React.Component {
 
     render() {
         return (
-            <Modal.Dialog>
-                <Modal.Header>
-                    <Modal.Title>Edit Profile</Modal.Title>
-                </Modal.Header>
+            <LoginDiv>
+                <Modal.Dialog>
+                    <Modal.Header>
+                        <Modal.Title>Edit Profile</Modal.Title>
+                    </Modal.Header>
 
-                <Modal.Body>
-                    <Form onSubmit={(e) => this.handleLogin(e)}>
-                        <h3>Login Form</h3>
+                    <Modal.Body>
+                        <Form onSubmit={(e) => this.handleLogin(e)}>
+                            <h3>Login Form</h3>
 
-                        <FormGroup>
-                            <label htmlFor="#email">Email</label>
-                            <FormInput name="email" id="#email" placeholder="Email" />
-                        </FormGroup>
+                            <FormGroup>
+                                <label htmlFor="#email">Email</label>
+                                <FormInput name="email" id="#email" placeholder="Email" />
+                            </FormGroup>
 
-                        <FormGroup>
-                            <label htmlFor="#password">Password</label>
-                            <FormInput name="password" type="password" id="#password" placeholder="Password" />
-                        </FormGroup>
+                            <FormGroup>
+                                <label htmlFor="#password">Password</label>
+                                <FormInput name="password" type="password" id="#password" placeholder="Password" />
+                            </FormGroup>
 
-                        <Button type="submit">Login</Button><br/><br/>
-                    </Form>
-                    
-                    <Link to="/signup">
-                        <Button> Create Your Account Today! </Button>
-                    </Link>
-                </Modal.Body>
-            </Modal.Dialog> 
+                            <Button type="submit">Login</Button><br/><br/>
+                        </Form>
+                        
+                        <Link to="/signup">
+                            <Button> Create Your Account Today! </Button>
+                        </Link>
+                    </Modal.Body>
+                </Modal.Dialog> 
+            </LoginDiv>
         )
     }
 }

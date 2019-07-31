@@ -23,7 +23,7 @@ class TripCarousel extends Component {
         return (
             <div>
                 <h2>Recent Trips</h2>
-                <Carousel>
+                <Carousel id="carousel">
                     {arr}
                 </Carousel>
             </div>
