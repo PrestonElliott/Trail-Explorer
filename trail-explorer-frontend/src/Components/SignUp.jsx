@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
+import SignUpDiv from "../SignUpDiv"
 
 class SignUp extends Component {
 
@@ -32,35 +33,37 @@ class SignUp extends Component {
 
     render() {
         return (
-            <Modal.Dialog>
-                <Modal.Header>
-                    <h3>Sign Up Form</h3>
-                </Modal.Header>
+            <SignUpDiv>
+                <Modal.Dialog>
+                    <Modal.Header>
+                        <h3>Sign Up Form</h3>
+                    </Modal.Header>
 
-                <Modal.Body>
+                    <Modal.Body>
 
-                    <Form onSubmit={(e) => this.handleSignUp(e)}>
-                    
-                        <FormGroup>
-                            <label htmlFor="#name">Name</label>
-                            <FormInput type="name" name="name" id="#name" placeholder="Name" />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <label htmlFor="#email">Email</label>
-                            <FormInput type="email" name="email" id="#email" placeholder="Email" />
-                        </FormGroup>
+                        <Form onSubmit={(e) => this.handleSignUp(e)}>
                         
-                        <FormGroup>
-                            <label htmlFor="#password">Password</label>
-                            <FormInput name="password" type="password" id="#password" placeholder="Password" />
-                            <Button type="submit"> Submit </Button><br/>
-                        </FormGroup>
-                    </Form>
-                    
-                </Modal.Body>
+                            <FormGroup>
+                                <label htmlFor="#name">Name</label>
+                                <FormInput type="name" name="name" id="#name" placeholder="Name" />
+                            </FormGroup>
 
-            </Modal.Dialog>
+                            <FormGroup>
+                                <label htmlFor="#email">Email</label>
+                                <FormInput type="email" name="email" id="#email" placeholder="Email" />
+                            </FormGroup>
+                            
+                            <FormGroup>
+                                <label htmlFor="#password">Password</label>
+                                <FormInput name="password" type="password" id="#password" placeholder="Password" /><br/>
+                                <Button type="submit"> Submit </Button><br/>
+                            </FormGroup>
+                        </Form>
+                        
+                    </Modal.Body>
+
+                </Modal.Dialog>
+            </SignUpDiv>
         )
     }
 }

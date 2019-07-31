@@ -66,7 +66,7 @@ class Trails extends Component {
                             <ListGroup.Item>Length: {t.length} miles</ListGroup.Item>
                             {/* <ListGroup.Item>Ascent: {t.ascent} ft Descent: {t.descent} ft</ListGroup.Item> */}
                             <ListGroup.Item>High: {t.high} ft, Low: {t.low} ft</ListGroup.Item>
-                            <ListGroup.Item id="trail-difficulty">Difficulty: <Image style={{'border-radius':'4px' }}src={this.difficultyImg(t)}/></ListGroup.Item>
+                            <ListGroup.Item id="trail-difficulty">Difficulty: <Image style={{'borderRadius':'4px' }}src={this.difficultyImg(t)}/></ListGroup.Item>
                             {/* <ListGroup.Item id="trail-conditions">Conditions: {t.conditionStatus}, {t.conditionDetails}</ListGroup.Item> */}
                             <ListGroup.Item> <a href={t.url} rel="noopener noreferrer" target="_blank">Trail Details </a></ListGroup.Item>
                         </ListGroup>
