@@ -51,7 +51,7 @@
 
 /* PROFILE PAGE */
 .user-profile {
-  text-align: left
+  margin: auto;
 }
 
 #future-trip-card {
@@ -62,15 +62,42 @@
   overflow-y: scroll;
 }
 
+#trip-card {
+  padding: 10px 20px;
+  margin: 1em;
+}
+
 #trail-list {
   text-align: left;
 }
 
 .trail-detail-map {
-  width: 75%;
+  width: 60vw;
   max-width: 1200px;
   height:410px;
 }
+
+#trip-card-image {
+  object-fit: cover;
+  height: 20rem;
+  width: 18rem;
+  align-self: center;
+}
+
+#trip-modal-image {
+  object-fit: cover;
+  height: 25rem;
+  width: 20rem;
+  align-self: center;
+}
+
+div.carousel.slide {
+  width: 60vw;
+  background-color: rgb(209, 209, 209);
+  padding: 50px 0;
+  margin: auto;
+}
+
 
 /* TRIP FORM & FUTURE TRIP FORM */
 .trails-checklist {
@@ -86,13 +113,23 @@
   margin: 10px 0; 
 }
 
+
+/* FOLLOWER FEED */
+#trip-card {
+  padding: 10px 20px;
+  width: 28rem;
+  margin: 1em;
+  height: 500px;
+  overflow-y: scroll;
+}
+
 /* TRIP MODAL */
 #trip-show-modal {
   border-radius: 8px;
   padding: 10px 20px;
-  width: 40%;
-  height: 70%;
-  justify-content: center;
+  width: 45%;
+  height: 90%;
+  margin: auto;
   
 }
 
