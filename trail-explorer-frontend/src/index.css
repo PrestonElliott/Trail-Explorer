@@ -5,11 +5,8 @@
 }
 
 .image-logo {
-  /* position: absolute;
-  top: 10;
-  left: 20; */
   width: 90px;
-  height: 70px;
+  height: 67px;
 }
 
 
@@ -25,7 +22,6 @@
 }
 
 #trail-card {
-  padding: 10px 20px;
   width: 24rem;
   margin: 1em;
 }
@@ -35,7 +31,6 @@
   height: 20rem;
   width: 24rem;
   align-self: center;
-
 }
 
 #trail-difficulty-img {
@@ -56,15 +51,10 @@
 
 #future-trip-card {
   padding: 10px 20px;
-  width: 28rem;
+  width: auto;
   margin: 1em;
   height: 400px;
   overflow-y: scroll;
-}
-
-#trip-card {
-  padding: 10px 20px;
-  margin: 1em;
 }
 
 #trail-list {
@@ -77,10 +67,17 @@
   height:410px;
 }
 
+#trip-card {
+  padding: 10px 20px;
+  width: 100%;
+  margin: 1em;
+  height: 550px;
+}
+
 #trip-card-image {
   object-fit: cover;
   height: 20rem;
-  width: 18rem;
+  width: 100%;
   align-self: center;
 }
 
@@ -114,15 +111,6 @@ div.carousel.slide {
 }
 
 
-/* FOLLOWER FEED */
-#trip-card {
-  padding: 10px 20px;
-  width: 28rem;
-  margin: 1em;
-  height: 500px;
-  overflow-y: scroll;
-}
-
 /* TRIP MODAL */
 #trip-show-modal {
   border-radius: 8px;
@@ -130,7 +118,13 @@ div.carousel.slide {
   width: 45%;
   height: 90%;
   margin: auto;
-  
+  text-align: center;
+  overflow-y: scroll;
+}
+
+/* FOLLOWER FEED */
+#follower-row {
+  padding: 10px 20px;
 }
 
 

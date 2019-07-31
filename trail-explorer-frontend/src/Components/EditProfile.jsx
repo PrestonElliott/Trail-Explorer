@@ -55,7 +55,7 @@ class EditProfile extends Component {
 
                             <FormGroup>
                                 <label htmlFor="#email">Email</label>
-                                <FormInput name="email" id="#email" placeholder="Email" />
+                                <FormInput type="email" name="email" id="#email" placeholder="Email" />
                             </FormGroup>
                             
                             <FormGroup>

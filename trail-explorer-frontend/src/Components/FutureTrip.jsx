@@ -9,10 +9,10 @@ class FutureTrip extends Component {
             <div>
                 <Card id="future-trip-card" className="m-2">
                     <Card.Body>
-                        <Card.Title>{this.props.futureTrip.title}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Location: {this.props.futureTrip.location}<br></br></Card.Subtitle>
+                        <Card.Title>{this.props.futureTrip.title}</Card.Title><br/>
+                        <Card.Subtitle className="mb-2 text-muted">Location: {this.props.futureTrip.location}<br/></Card.Subtitle>
                         <Card.Text>
-                            Notes: {this.props.futureTrip.note}<br></br>
+                            Notes: {this.props.futureTrip.note}<br/><br/>
                             <ul id="trail-list">{this.props.futureTrip.trail_names.map(trail_name => <li>{trail_name}</li>)}</ul>
                         </Card.Text>
                     </Card.Body>

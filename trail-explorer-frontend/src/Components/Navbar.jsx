@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import {
   Navbar,
   NavbarToggler,
-  // NavbarBrand,
+  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -16,7 +16,7 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
-  FormInput,
+  // FormInput,
   Collapse
 } from "shards-react";
 
@@ -58,9 +58,10 @@ class NavExample extends React.Component {
 
   render() {
     return (
-      <Navbar type="dark" theme="primary" expand="md">
+      
+      <Navbar type="light" theme="light" expand="md">
         <img src={this.imageText} className="text-logo" alt="logo"/>
-        {/* <NavbarBrand href="#">Trail Explorer</NavbarBrand> */}
+        <NavbarBrand><img src={this.imageLogo} className="image-logo" alt="trail-logo"/></NavbarBrand>
         <NavbarToggler onClick={this.toggleNavbar} />
 
         <Collapse open={this.state.collapseOpen} navbar>
@@ -108,8 +109,6 @@ class NavExample extends React.Component {
               }
           </Nav>
 
-          <img src={this.imageLogo} className="image-logo" alt="trail-logo"/>
-
           <Nav navbar className="ml-auto">
             <InputGroup size="sm" seamless>
               <InputGroupAddon type="prepend">
@@ -117,7 +116,7 @@ class NavExample extends React.Component {
                   {/* <FontAwesomeIcon icon={faSearch} /> */}
                 </InputGroupText>
               </InputGroupAddon>
-              <FormInput className="border-0" placeholder="Search..." />
+              {/* <FormInput className="border-0" placeholder="Search..." /> */}
             </InputGroup>
           </Nav>
         </Collapse>

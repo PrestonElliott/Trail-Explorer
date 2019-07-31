@@ -10,8 +10,9 @@ class FollowerFeed extends Component {
         console.log(this.props.user.followed_users)
         return (
             <Fragment>
+                <br/><h2>Your Followers Feed!</h2><br/>
                 <div className='tripcard-div'>
-                    <Row>
+                    <Row id="follower-row">
                         {this.props.user.followed_users.map(friend => 
                             friend.trips.map(trip => 
                                 <Col md={3}><Trip key={trip.id} trip={trip} /> </Col>))
