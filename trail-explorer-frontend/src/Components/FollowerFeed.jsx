@@ -7,6 +7,7 @@ import {Row, Col} from 'react-bootstrap'
 class FollowerFeed extends Component {
 
     render() {
+        console.log(this.props.user.followed_users)
         return (
             <Fragment>
                 <div className='tripcard-div'>
@@ -21,7 +22,7 @@ class FollowerFeed extends Component {
                 <div className='futuretripcard-div'>
                     <Row>
                         {this.props.user.followed_users.map(friend => 
-                            friend.futureTrips.map(futureTrip => 
+                            friend.future_trips.map(futureTrip => 
                                 <Col md={3}><FutureTrip key={futureTrip.id} futureTrip={futureTrip}/> </Col>))
                         }
                     </Row>

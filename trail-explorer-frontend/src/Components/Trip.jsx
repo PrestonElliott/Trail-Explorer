@@ -30,7 +30,7 @@ class Trip extends Component {
                     <Card.Img variant="top" src={this.props.trip.image} />
                     <Card.Body>
                     <Card.Text>
-                        {this.props.trip.description}
+                        {this.props.trip.title}
                     </Card.Text>
                     <Button onClick={()=> this.setState({ showModal: true })} variant="primary">Trip Details</Button>
                     </Card.Body>

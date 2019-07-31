@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, ListGroup } from "react-bootstrap"
+import { Card, ListGroup, Image } from "react-bootstrap"
 
 class Trails extends Component {
 
     fetchTrails = (lat, lon) => {
-        const maxResults = 25
+        const maxResults = 50
         const decimalReplaceLat = lat.replace('.', '!')
         const decimalReplaceLon = lon.replace('.', '!')
         fetch(`http://localhost:3000/trails&lat=${decimalReplaceLat}&lon=${decimalReplaceLon}&maxResults=${maxResults}`)
@@ -17,6 +17,34 @@ class Trails extends Component {
         this.fetchTrails("33.7490", "-84.3880")
     }
 
+    difficultyImg = (t) => {
+        switch(t.difficulty) {
+            case "green":
+                return "https://cdn.apstatic.com/img/diff/green.svg"
+            break
+
+            case "greenBlue":
+                return "https://cdn.apstatic.com/img/diff/greenBlue.svg"
+            break 
+
+            case "blue":
+                return "https://cdn.apstatic.com/img/diff/blue.svg"
+            break
+
+            case "blueBlack":
+                return "https://cdn.apstatic.com/img/diff/blueBlack.svg"
+            break 
+
+            case "black":
+                return "https://cdn.apstatic.com/img/diff/black.svg"
+            break
+
+            default: 
+                return ""
+            break
+        }
+    }
+
     renderTrails = () => {
         console.log("TRAILS", this.props.trailReducer)
         if(this.props){
@@ -25,7 +53,7 @@ class Trails extends Component {
                 <Card id="trail-card">
                     <Card.Img id="trail-card-image" alt="trail-img" className="card-img-top" src={t.imgSmallMed ? ( t.imgSmallMed) : ("https://pdxfamilyadventures.com/wp-content/uploads/2012/11/DSC03794.jpg")} />
                     
-                    <Card.Title>{t.name}</Card.Title>
+                    <Card.Title id="trail-name">{t.name}</Card.Title>
 
                     <Card.Body>
                         <Card.Text>{t.location} </Card.Text>
@@ -33,9 +61,9 @@ class Trails extends Component {
                         <ListGroup variant="flush">
                             <ListGroup.Item>Stars: {t.stars}</ListGroup.Item>
                             <ListGroup.Item>Length: {t.length} miles</ListGroup.Item>
-                            <ListGroup.Item>Ascent: {t.ascent} ft, Descent: {t.descent} ft</ListGroup.Item>
-                            <ListGroup.Item>High: {t.high} ft, Low: {t.low}</ListGroup.Item>
-                            <ListGroup.Item>Difficulty: {t.difficulty}</ListGroup.Item>
+                            {/* <ListGroup.Item>Ascent: {t.ascent} ft Descent: {t.descent} ft</ListGroup.Item> */}
+                            <ListGroup.Item>High: {t.high} ft, Low: {t.low} ft</ListGroup.Item>
+                            <ListGroup.Item id="trail-difficulty">Difficulty: <Image style={{'border-radius':'4px' }}src={this.difficultyImg(t)}/></ListGroup.Item>
                             {/* <ListGroup.Item id="trail-conditions">Conditions: {t.conditionStatus}, {t.conditionDetails}</ListGroup.Item> */}
                             <ListGroup.Item> <a href={t.url} rel="noopener noreferrer" target="_blank">Trail Details </a></ListGroup.Item>
                         </ListGroup>

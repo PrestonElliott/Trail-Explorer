@@ -1,16 +1,12 @@
 class UserSerializer < ActiveModel::Serializer
-  has_many :followed_users
+  # has_many :followed_users, each_serializer: FollowedUserSerializer
   has_many :trips
   has_many :future_trips
 
-  attributes :id, :email, :name
+  attributes :id, :email, :name, :followed_users
 
-  # def trips
-  #   self.object.trips
-  # end
-
-  # def futureTrips
-  #   self.object.future_trips
-  # end
+  def followed_users
+    self.object.followed_users.map{|f| FollowedUserSerializer.new(f) }
+  end
 
 end
