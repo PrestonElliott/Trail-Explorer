@@ -14,14 +14,14 @@ class Profile extends Component {
         return (
             <div>
                 <div className="user-profile">
-                    <h2>Hey {this.props.user.name}!</h2><br/>
+                <br/><h2>Hey {this.props.user.name}!</h2><br/>
 
                     <Link to="/trip-form"> 
-                        <Button  variant="primary">Log Your Trip!</Button>
-                    </Link> 
+                        <Button  variant="primary">Log Your Trip!</Button><br/><br/>
+                    </Link>  
 
                     <Link to="/future-trip-form"> 
-                        <Button  variant="primary">Create a Future Trip!</Button>
+                        <Button variant="primary">Create a Future Trip!</Button>
                     </Link> 
                 </div><br/>
 

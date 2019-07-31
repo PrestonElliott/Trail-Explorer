@@ -25,10 +25,7 @@ class SignUp extends Component {
                     localStorage.setItem('token', res.jwt)
                     this.props.dispatch({ type: 'GET_USER', user: res.user })
                 }
-                // else if(res.errors)
-                //     this.setState({ errors: res.errors })
             })
-            // e.target.password.value = ''
         }
     
     }
@@ -46,12 +43,12 @@ class SignUp extends Component {
                     
                         <FormGroup>
                             <label htmlFor="#name">Name</label>
-                            <FormInput name="name" id="#name" placeholder="Name" />
+                            <FormInput type="name" name="name" id="#name" placeholder="Name" />
                         </FormGroup>
 
                         <FormGroup>
                             <label htmlFor="#email">Email</label>
-                            <FormInput name="email" id="#email" placeholder="Email" />
+                            <FormInput type="email" name="email" id="#email" placeholder="Email" />
                         </FormGroup>
                         
                         <FormGroup>

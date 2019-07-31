@@ -7,7 +7,7 @@ class TripsContainer extends Component {
     render() {
         return (
             <div>
-                <Row> 
+                <Row md={2}> 
                     {this.props.user.trips.map(trip => 
                         <Col md={3}> <Trip key={trip.id} trip={trip}/> </Col>)
                     }

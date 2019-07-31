@@ -5,7 +5,7 @@ import { Card, ListGroup, Image } from "react-bootstrap"
 class Trails extends Component {
 
     fetchTrails = (lat, lon) => {
-        const maxResults = 50
+        const maxResults = 40
         const decimalReplaceLat = lat.replace('.', '!')
         const decimalReplaceLon = lon.replace('.', '!')
         fetch(`http://localhost:3000/trails&lat=${decimalReplaceLat}&lon=${decimalReplaceLon}&maxResults=${maxResults}`)
@@ -21,27 +21,21 @@ class Trails extends Component {
         switch(t.difficulty) {
             case "green":
                 return "https://cdn.apstatic.com/img/diff/green.svg"
-            break
 
             case "greenBlue":
                 return "https://cdn.apstatic.com/img/diff/greenBlue.svg"
-            break 
 
             case "blue":
                 return "https://cdn.apstatic.com/img/diff/blue.svg"
-            break
 
             case "blueBlack":
                 return "https://cdn.apstatic.com/img/diff/blueBlack.svg"
-            break 
 
             case "black":
                 return "https://cdn.apstatic.com/img/diff/black.svg"
-            break
 
             default: 
                 return ""
-            break
         }
     }
 
@@ -50,8 +44,17 @@ class Trails extends Component {
         if(this.props){
           const trailCards = this.props.trailReducer.map(t => {
             return(
-                <Card id="trail-card">
-                    <Card.Img id="trail-card-image" alt="trail-img" className="card-img-top" src={t.imgSmallMed ? ( t.imgSmallMed) : ("https://pdxfamilyadventures.com/wp-content/uploads/2012/11/DSC03794.jpg")} />
+                <Card id="trail-card" key={t.id}>
+                    <Card.Img 
+                        
+                        id="trail-card-image" 
+                        alt="trail-img" 
+                        className="card-img" 
+                        src={t.imgSmallMed ? 
+                        ( t.imgSmallMed) 
+                            : 
+                        ("https://pdxfamilyadventures.com/wp-content/uploads/2012/11/DSC03794.jpg")} 
+                    /><br/>
                     
                     <Card.Title id="trail-name">{t.name}</Card.Title>
 

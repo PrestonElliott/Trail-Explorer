@@ -25,7 +25,7 @@ class Trip extends Component {
             <div>
                 { this.renderTripModal() }
 
-                <Card id="trip-card" className="m-2">
+                <Card id="trip-card" >
                     <Card.Img variant="top" id="trip-card-image" src={this.props.trip.image} />
                     <Card.Body>
                     <Card.Text>
