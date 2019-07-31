@@ -12,6 +12,7 @@
   height: 70px;
 }
 
+
 /* TRAILS HOMEPAGE */
 .trails-map {
   width: 100%;
@@ -47,9 +48,22 @@
   justify-content: center;
 }
 
+
 /* PROFILE PAGE */
 .user-profile {
   text-align: left
+}
+
+#future-trip-card {
+  padding: 10px 20px;
+  width: 28rem;
+  margin: 1em;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+#trail-list {
+  text-align: left;
 }
 
 .trail-detail-map {

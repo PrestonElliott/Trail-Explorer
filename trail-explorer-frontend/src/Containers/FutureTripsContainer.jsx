@@ -7,7 +7,7 @@ class FutureTripsContainer extends Component {
     render() {
         return (
             <div>
-                <Row>
+                <Row className="row">
                     {this.props.user.future_trips.map(futureTrip => 
                         <Col md={3}> <FutureTrip key={futureTrip.id} futureTrip={futureTrip}/> </Col>)
                     }
