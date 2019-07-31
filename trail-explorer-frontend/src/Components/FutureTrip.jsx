@@ -1,36 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, Button } from "react-bootstrap"
-import Modal from "react-modal"
+import { Card } from "react-bootstrap"
 
 class FutureTrip extends Component {
-
-    state = { showModal: false }
-
-    renderFutureTripModal = () => {
-
-        Modal.setAppElement("#root")
-        return <Modal id='future-trip-show-modal' isOpen={this.state.showModal} >
-            <h4>{this.props.futureTrip.title}</h4>
-            <p>{this.props.futureTrip.location}</p>
-            <p>{this.props.futureTrip.note}</p>
-            <ul>{this.props.futureTrip.trail_names.map(trail_name => <li>{trail_name}</li>)}</ul>
-
-            <Button onClick={()=> this.setState({ showModal: false }) } variant="secondary">Close</Button>
-        </Modal>
-    }
 
     render() {
         return (
             <div>
-                { this.renderFutureTripModal() }
-
-                <Card style={{ width: '18rem' }} className="m-2" >
+                <Card id="future-trip-card" className="m-2">
                     <Card.Body>
-                    <Card.Text>
-                        {this.props.futureTrip.title}
-                    </Card.Text>
-                    <Button onClick={()=> this.setState({ showModal: true })} variant="primary">Future Trip Details</Button>
+                        <Card.Title>{this.props.futureTrip.title}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">Location: {this.props.futureTrip.location}<br></br></Card.Subtitle>
+                        <Card.Text>
+                            Notes: {this.props.futureTrip.note}<br></br>
+                            <ul id="trail-list">{this.props.futureTrip.trail_names.map(trail_name => <li>{trail_name}</li>)}</ul>
+                        </Card.Text>
                     </Card.Body>
                 </Card>
             </div>

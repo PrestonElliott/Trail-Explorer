@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card, Button, Image } from "react-bootstrap"
-import { FaStar } from "react-icons/fa"
 import Modal from "react-modal"
 
 class Trip extends Component {
@@ -16,7 +15,7 @@ class Trip extends Component {
             <h5>{this.props.trip.location}</h5>
             <p>{this.props.trip.description}</p>
             <ul>{this.props.trip.trail_names.map(trail_name => <li>{trail_name}</li>)}</ul>
-            <p><FaStar/> {this.props.trip.stars} </p>
+            <p> {this.props.trip.stars} </p>
             <Button onClick={()=> this.setState({ showModal: false }) } variant="secondary">Close</Button>
         </Modal>
     }
@@ -30,7 +29,7 @@ class Trip extends Component {
                     <Card.Img variant="top" src={this.props.trip.image} />
                     <Card.Body>
                     <Card.Text>
-                        {this.props.trip.title}
+                        {this.props.trip.description}
                     </Card.Text>
                     <Button onClick={()=> this.setState({ showModal: true })} variant="primary">Trip Details</Button>
                     </Card.Body>
