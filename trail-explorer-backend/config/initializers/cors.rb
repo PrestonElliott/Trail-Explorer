@@ -8,7 +8,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     # CHANGE ORIGINS BACK TO DOMAIN WHEN DEPLOYING ON HEROKU 
-    origins '*'
+    origins 'https://trail-explorer-a1152.firebaseapp.com'
 
     resource '*',
       headers: :any,
