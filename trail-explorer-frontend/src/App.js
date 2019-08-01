@@ -11,6 +11,7 @@ import SignUp from "./Components/SignUp"
 import TrailsHome from './Components/TrailsHome'
 import TripForm from "./Components/TripForm"
 import FutureTripForm from "./Components/FutureTripForm"
+import AllUsers from "./Components/AllUsers"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "shards-ui/dist/css/shards.min.css"
@@ -40,8 +41,8 @@ class App extends React.Component {
           null
           :
           <Switch>
-            <Route path="/" component={TrailsHome}/>
             <Route exact path='/trails' component={TrailsHome} />
+            <Route exact path='/all-users' component={AllUsers} />
             <Route exact path='/follower-feed' component={FollowerFeed} />
             <Route path='/login' render={()=> this.props.loggedIn ? <Redirect to='/profile'/> : <Login/> } />
             <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />

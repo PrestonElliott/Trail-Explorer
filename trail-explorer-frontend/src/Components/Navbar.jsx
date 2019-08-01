@@ -80,6 +80,12 @@ class NavExample extends React.Component {
                       Follower Feed
                     </NavLink>
                   </NavItem>
+
+                  <NavItem>
+                    <NavLink active href="/all-users">
+                      All Users
+                    </NavLink>
+                  </NavItem>
                   
                 
                   <Dropdown open={this.state.dropdownOpen} toggle={this.toggleDropdown}>

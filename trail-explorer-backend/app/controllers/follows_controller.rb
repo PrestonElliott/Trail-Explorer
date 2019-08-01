@@ -1,4 +1,6 @@
 class FollowsController < ApplicationController
+
+    skip_before_action :authorized
     
     def create 
         @follow = Follow.create(follow_params)
@@ -24,6 +26,6 @@ class FollowsController < ApplicationController
 
     private
     def follow_params
-        require(:follow).permit(:user_id, :followed_user_id)
+        params.require(:follow).permit(:user_id, :followed_user_id)
     end
 end
