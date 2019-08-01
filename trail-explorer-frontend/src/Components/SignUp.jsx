@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
-import SignUpDiv from "../SignUpDiv"
+import SignUpDiv from "./SignUpDiv"
 
 class SignUp extends Component {
 

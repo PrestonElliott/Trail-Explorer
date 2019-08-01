@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
-import LoginDiv from "../LoginDiv"
+import LoginDiv from "./LoginDiv"
 
 class Login extends React.Component {
 

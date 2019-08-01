@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link, Redirect } from "react-router-dom"
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
+import EditProfileDiv from "./EditProfileDiv"
 
 class EditProfile extends Component {
 
@@ -44,42 +45,43 @@ class EditProfile extends Component {
         return (
             <div>
                 { this.state.redirect }
+                <EditProfileDiv>
+                    <Modal.Dialog>
+                        <Modal.Header>
+                            <Modal.Title>Edit Profile</Modal.Title>
+                        </Modal.Header>
 
-                <Modal.Dialog>
-                    <Modal.Header>
-                        <Modal.Title>Edit Profile</Modal.Title>
-                    </Modal.Header>
+                        <Modal.Body>
+                            <Form onSubmit={ this.handleEditProfile } >
 
-                    <Modal.Body>
-                        <Form onSubmit={ this.handleEditProfile } >
+                                <FormGroup>
+                                    <label htmlFor="#email">Email</label>
+                                    <FormInput type="email" name="email" id="#email" placeholder="Email" />
+                                </FormGroup>
+                                
+                                <FormGroup>
+                                    <label htmlFor="#current-password">Current Password</label>
+                                    <FormInput name="currentPassword" type="password" id="#current-password" placeholder="Current Password" />
+                                </FormGroup>
 
-                            <FormGroup>
-                                <label htmlFor="#email">Email</label>
-                                <FormInput type="email" name="email" id="#email" placeholder="Email" />
-                            </FormGroup>
-                            
-                            <FormGroup>
-                                <label htmlFor="#current-password">Current Password</label>
-                                <FormInput name="currentPassword" type="password" id="#current-password" placeholder="Current Password" />
-                            </FormGroup>
+                                <FormGroup>
+                                    <label htmlFor="#password">New Password</label>
+                                    <FormInput name="password" type="password" id="#password" placeholder="New Password" />
+                                </FormGroup>
 
-                            <FormGroup>
-                                <label htmlFor="#password">New Password</label>
-                                <FormInput name="password" type="password" id="#password" placeholder="New Password" />
-                            </FormGroup>
+                                <FormGroup>
+                                    <label htmlFor="#confirm-password">Confirm Password</label>
+                                    <FormInput name="confirmPassword" type="password" id="#confirm-password" placeholder="Confirm Password" />
+                                </FormGroup>
 
-                            <FormGroup>
-                                <label htmlFor="#confirm-password">Confirm Password</label>
-                                <FormInput name="confirmPassword" type="password" id="#confirm-password" placeholder="Confirm Password" />
-                            </FormGroup>
-
-                            <Button type="submit" variant="primary">Save Changes</Button>
-                            <Link to="/trails"> 
-                                <Button  variant="secondary">Cancel</Button>
-                            </Link> 
-                        </Form>
-                    </Modal.Body>
-                </Modal.Dialog>
+                                <Button type="submit" variant="primary">Save Changes</Button>
+                                <Link to="/trails"> 
+                                    <Button  variant="secondary">Cancel</Button>
+                                </Link> 
+                            </Form>
+                        </Modal.Body>
+                    </Modal.Dialog>
+                </EditProfileDiv>
             </div>
         )
     }

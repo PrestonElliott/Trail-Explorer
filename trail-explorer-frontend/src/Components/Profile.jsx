@@ -23,6 +23,7 @@ class Profile extends Component {
                     <Link to="/future-trip-form"> 
                         <Button variant="primary">Create a Future Trip!</Button>
                     </Link> 
+
                 </div><br/>
 
                 <div align="center" id="featured-trail-map">
