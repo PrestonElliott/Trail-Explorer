@@ -40,8 +40,9 @@ class App extends React.Component {
           null
           :
           <Switch>
-            <Route exact path='/follower-feed' component={FollowerFeed} />
+            <Route path="/" component={TrailsHome}/>
             <Route exact path='/trails' component={TrailsHome} />
+            <Route exact path='/follower-feed' component={FollowerFeed} />
             <Route path='/login' render={()=> this.props.loggedIn ? <Redirect to='/profile'/> : <Login/> } />
             <Route path='/profile' render={()=> this.props.loggedIn  ? <Profile/> : <Redirect to='/login'/> } />
             <Route exact path="/signup" component={SignUp} />

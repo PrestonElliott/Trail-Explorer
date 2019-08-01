@@ -27,7 +27,7 @@ class FollowerFeed extends Component {
                                 <Col md={3}><FutureTrip key={futureTrip.id} futureTrip={futureTrip}/> </Col>))
                         }
                     </Row>
-                </div>
+                </div><br/>
             </Fragment>
         )
     }
