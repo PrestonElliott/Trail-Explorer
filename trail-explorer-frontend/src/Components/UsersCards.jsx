@@ -5,7 +5,7 @@ import { Row, Col, Card, Button } from 'react-bootstrap'
 class UsersCards extends Component {
 
     follow = (user) => {
-        let follow = { user_id: user.id, followed_user_id: this.props.user.user.id}
+        let follow = { followed_user_id: user.id, user_id: this.props.user.user.id}
         console.log(follow)
 
         fetch("http://localhost:3000/follows", {
@@ -14,28 +14,41 @@ class UsersCards extends Component {
                     'Content-Type':'application/json',
                     Authorization: localStorage.token},
             body: JSON.stringify({follow: follow})
-        }).then(res => res.json())
+        })
+        .then(res => res.json())
+        .then(res => {
+            if (res.user)
+                this.props.dispatch({ type: 'GET_USER', user: res.user })
+        })
+        // .then()
     }
 
     render() {
-        console.log(this.props.allUsers.allUsers)
+        console.log(this.props)
+
         return (
             <div>
             {this.props.allUsers &&
                 <Row className="d-flex justify-content-center m-3">
-                    {this.props.allUsers.allUsers.map(user => 
-                        <Col md={3}> 
-                            <Card id="user-card" key={user.id} >
-                                <Card.Body>
-                                    <Card.Text>
-                                         {user.name}<br/> 
-                                         {user.email} 
-                                    </Card.Text>
-                                        <Button onClick={() => this.follow(user)} variant="primary">Follow!</Button>
-
-                                </Card.Body>
-                            </Card><br/> 
-                        </Col>)
+                    {this.props.allUsers.allUsers.map(user => {
+                        if(user.id !== this.props.user.user.id)
+                            return <Col md={3}> 
+                                <Card id="user-card" key={user.id} >
+                                    <Card.Body>
+                                        <Card.Text>
+                                            {user.name}<br/> 
+                                            {user.email} 
+                                        </Card.Text>
+                                            {
+                                                this.props.user.user.followed_users.find(f => f.id === user.id ) ?
+                                                <Button disabled> Followed </Button>
+                                                :
+                                                <Button onClick={() => this.follow(user)} variant="primary">Follow!</Button> 
+                                            }
+                                    </Card.Body>
+                                </Card><br/> 
+                            </Col>
+                        })
                     }
                 </Row>
             }
