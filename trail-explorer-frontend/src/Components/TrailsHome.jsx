@@ -13,7 +13,7 @@ class TrailsHome extends Component {
                     src="https://www.hikingproject.com/widget/map?favs=1&location=ip&x=-9402411&y=4020493&z=11.5&h=500">
                 </Iframe>
                 <div>
-                    <Trails/>
+                    <Trails/><br/>
                 </div>
 
             </div> 

@@ -38,7 +38,7 @@ class Profile extends Component {
 
                 <div>
                     <h2>Future Trips</h2>
-                    <FutureTripsContainer />
+                    <FutureTripsContainer /><br/>
                 </div>
             </div>
         )
