@@ -14,7 +14,7 @@ class TripCarousel extends Component {
 
         for (let i = 0; i < upperBound; i++) {
             arr.push(
-                <Carousel.Item align="center">
+                <Carousel.Item id="carousel-item" align="center">
                     <Trip trip={this.props.user.trips[i]} />
                 </Carousel.Item>
             )

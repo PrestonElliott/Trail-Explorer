@@ -72,6 +72,11 @@
   padding: 10px 100px;
 }
 
+#carousel-item {
+  border-radius: 30px;
+  padding: 10px 100px;
+}
+
 #trip-card {
   padding: 10px 20px;
   width: 100%;
