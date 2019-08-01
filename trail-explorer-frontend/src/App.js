@@ -50,6 +50,7 @@ class App extends React.Component {
             <Route exact path="/edit-profile" component={EditProfile} />
             <Route exact path="/trip-form" component={TripForm} />
             <Route exact path="/future-trip-form" component={FutureTripForm} />
+            <Route path='/' render={()=> <Redirect to='/trails' /> } />
           </Switch>
         }
       </div>
