@@ -8,9 +8,7 @@ import TripCarousel from "./TripCarousel"
 
 
 class Profile extends Component {
-
     render() {
-        // console.log(this.props.user.trips)
         return (
             <div>
                 <div className="user-profile">

@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Card, ListGroup, Image } from "react-bootstrap"
 
 class Trails extends Component {
-
     fetchTrails = (lat, lon) => {
         const maxResults = 40
         const decimalReplaceLat = lat.replace('.', '!')

@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { Form, FormInput, FormGroup } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
 import LoginDiv from "./LoginDiv"
 
 class Login extends React.Component {
+    state = { redirect: null }
 
     handleLogin = (e) => {
         e.preventDefault()
@@ -25,6 +27,7 @@ class Login extends React.Component {
                 if(res.jwt) {
                     localStorage.setItem('token', res.jwt)
                     this.props.dispatch({ type: 'GET_USER', user: res.user })
+                    this.setState({ redirect: <Redirect to='/' /> })
                 }
             })
         }
@@ -33,6 +36,7 @@ class Login extends React.Component {
     render() {
         return (
             <LoginDiv>
+                {this.state.redirect}
                 <Modal.Dialog>
                     <Modal.Header>
                         <Modal.Title>Edit Profile</Modal.Title>

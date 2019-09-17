@@ -4,7 +4,6 @@ import Iframe from 'react-iframe'
 import Trails from "./Trails"
 
 class TrailsHome extends Component {
-
     render() { 
         return ( 
             <div>

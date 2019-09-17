@@ -5,7 +5,6 @@ import { Form, FormInput, FormGroup, FormSelect } from "shards-react"
 import { Modal, Button } from "react-bootstrap"
 
 class TripForm extends Component {
-
     state = { 
         redirect: null,
         trail_names: []

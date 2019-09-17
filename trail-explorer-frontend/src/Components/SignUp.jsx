@@ -5,7 +5,6 @@ import { Modal, Button } from "react-bootstrap"
 import SignUpDiv from "./SignUpDiv"
 
 class SignUp extends Component {
-
     handleSignUp = (e) => {
         e.preventDefault()
         if(e.target.name.value && e.target.email.value && e.target.password.value) {
@@ -28,7 +27,6 @@ class SignUp extends Component {
                 }
             })
         }
-    
     }
 
     render() {

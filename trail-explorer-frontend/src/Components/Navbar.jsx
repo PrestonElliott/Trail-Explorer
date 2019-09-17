@@ -1,7 +1,5 @@
 import React, { Fragment } from "react";
 import { connect } from 'react-redux'
-// import { faSearch } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Navbar,
   NavbarToggler,
@@ -16,7 +14,6 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
-  // FormInput,
   Collapse
 } from "shards-react";
 
@@ -24,7 +21,6 @@ class NavExample extends React.Component {
 
   imageText = require("../Images/trail-explorer-logo-text.png")
   imageLogo = require("../Images/trail-explorer-logo-main.png")
-
 
   constructor(props) {
     super(props)

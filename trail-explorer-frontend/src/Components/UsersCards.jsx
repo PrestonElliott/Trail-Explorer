@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Row, Col, Card, Button } from 'react-bootstrap'
 
 class UsersCards extends Component {
-
     follow = (user) => {
         let follow = { followed_user_id: user.id, user_id: this.props.user.user.id}
         console.log(follow)
@@ -20,7 +19,6 @@ class UsersCards extends Component {
             if (res.user)
                 this.props.dispatch({ type: 'GET_USER', user: res.user })
         })
-        // .then()
     }
 
     render() {

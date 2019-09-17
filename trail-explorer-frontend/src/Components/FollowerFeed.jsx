@@ -15,7 +15,8 @@ class FollowerFeed extends Component {
                     <Row id="follower-row">
                         {this.props.user.followed_users.map(friend => 
                             friend.trips.map(trip => 
-                                <Col md={3}><Trip key={trip.id} trip={trip} /> </Col>))
+                                <Col md={3}><Trip key={trip.id} trip={trip} /> </Col>)
+                            )
                         }
                     </Row>
                 </div>
@@ -24,7 +25,8 @@ class FollowerFeed extends Component {
                     <Row>
                         {this.props.user.followed_users.map(friend => 
                             friend.future_trips.map(futureTrip => 
-                                <Col md={3}><FutureTrip key={futureTrip.id} futureTrip={futureTrip}/> </Col>))
+                                <Col md={3}><FutureTrip key={futureTrip.id} futureTrip={futureTrip}/> </Col>)
+                            )
                         }
                     </Row>
                 </div><br/>

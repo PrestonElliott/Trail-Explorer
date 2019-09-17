@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import UsersCards from "./UsersCards"
 
 class AllUsers extends Component {
-
     componentDidMount = () => {
         fetch("http://localhost:3000/users", {
             method: "GET",
