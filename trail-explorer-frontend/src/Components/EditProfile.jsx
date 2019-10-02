@@ -11,7 +11,6 @@ class EditProfile extends Component {
 
     handleEditProfile = (e) => {
         e.preventDefault()
-        // console.log(e.target)
         if(e.target.email.value && e.target.currentPassword.value && e.target.password.value === e.target.confirmPassword.value) {
             fetch(`http://localhost:3000/users/${this.props.user.id}`, {
                 method: "PATCH",
@@ -28,7 +27,6 @@ class EditProfile extends Component {
             })
             .then(res => res.json())
             .then(res => {
-                // console.log(res)
                 if (res.user) {
                     this.props.dispatch({ type: 'GET_USER', user: res.user })
                     this.setState({ redirect: <Redirect to='/profile' /> })
@@ -36,7 +34,6 @@ class EditProfile extends Component {
             })
         }
         else {
-            // this.props.error
             
         }
     }
