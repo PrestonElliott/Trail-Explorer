@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_195249) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.string "profile_picture", default: "default"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

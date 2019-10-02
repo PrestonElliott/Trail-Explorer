@@ -33,6 +33,7 @@ class UsersCards extends Component {
                             return <Col md={3}> 
                                 <Card id="user-card" key={user.id} >
                                     <Card.Body>
+                                        <Card.Img variant="top" id="trip-card-image" src={user.profile_picture} />
                                         <Card.Text>
                                             {user.name}<br/> 
                                             {user.email} 
