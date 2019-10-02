@@ -28,7 +28,7 @@ class UsersCards extends Component {
             <div>
             {this.props.allUsers &&
                 <Row className="d-flex justify-content-center m-3">
-                    {this.props.allUsers.allUsers.map(user => {
+                    {this.props.allUsers.users.map(user => {
                         if(user.id !== this.props.user.user.id)
                             return <Col md={3}> 
                                 <Card id="user-card" key={user.id} >

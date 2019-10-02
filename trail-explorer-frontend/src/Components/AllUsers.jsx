@@ -10,7 +10,7 @@ class AllUsers extends Component {
         })
         .then(res => res.json())
         .then(res => {
-            this.props.dispatch({ type: "ALL_USERS", allUsers: res })
+            this.props.dispatch({ type: "ALL_USERS", users: res })
         })
     }
 

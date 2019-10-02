@@ -38,13 +38,10 @@ class Login extends React.Component {
             <LoginDiv>
                 {this.state.redirect}
                 <Modal.Dialog>
-                    <Modal.Header>
-                        <Modal.Title>Edit Profile</Modal.Title>
-                    </Modal.Header>
 
                     <Modal.Body>
                         <Form onSubmit={(e) => this.handleLogin(e)}>
-                            <h3>Login Form</h3>
+                            <h3>Login Form</h3><br/>
 
                             <FormGroup>
                                 <label htmlFor="#email">Email</label>

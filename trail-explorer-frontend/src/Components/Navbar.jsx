@@ -83,7 +83,6 @@ class NavExample extends React.Component {
                     </NavLink>
                   </NavItem>
                   
-                
                   <Dropdown open={this.state.dropdownOpen} toggle={this.toggleDropdown}>
                     <DropdownToggle nav caret>
                       Profile
@@ -115,10 +114,8 @@ class NavExample extends React.Component {
             <InputGroup size="sm" seamless>
               <InputGroupAddon type="prepend">
                 <InputGroupText>
-                  {/* <FontAwesomeIcon icon={faSearch} /> */}
                 </InputGroupText>
               </InputGroupAddon>
-              {/* <FormInput className="border-0" placeholder="Search..." /> */}
             </InputGroup>
           </Nav>
         </Collapse>
